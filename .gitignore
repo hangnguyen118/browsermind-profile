@@ -27,5 +27,3 @@ coverage/
 .env.*
 !.env.example
 
-# Local model weights are NOT used in the browser build (ONNX is loaded from CDN)
-Qwen2.5-0.5B/

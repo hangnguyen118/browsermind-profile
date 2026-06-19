@@ -16,8 +16,8 @@ import type {
 export const PROFILE = {
   email: 'ntdieuhang192@gmail.com',
   phone: '0327 840 518',
-  /** CV file placed at public/cv.pdf */
-  cvUrl: './cv.pdf',
+  /** CV file placed at public/CV_NguyenThiDieuHang.pdf (served at the site root). */
+  cvUrl: './CV_NguyenThiDieuHang.pdf',
   /** Avatar placed at public/avatar.jpg (falls back to initials if missing). */
   avatarUrl: './avatar.jpg',
   initials: 'DH',

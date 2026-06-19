@@ -9,7 +9,7 @@ import { useAI } from '../../hooks/useAI';
 import { useChat } from '../../hooks/useChat';
 import { onOpenChat } from '../../lib/chatBus';
 
-/** Floating AI chat: collapsed button ↔ expanded panel (SPEC §5.1). */
+/** AI chat: floating toggle button ↔ right-side sidebar panel (SPEC §5.1). */
 export function ChatbotWidget() {
   const { t } = useTranslation('chatbot');
   const [open, setOpen] = useState(false);
@@ -78,20 +78,20 @@ export function ChatbotWidget() {
         )}
       </AnimatePresence>
 
-      {/* Chat panel */}
+      {/* Chat sidebar (docked to the right edge, full height) */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.96 }}
-            transition={{ type: 'spring', damping: 26, stiffness: 320 }}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             role="dialog"
             aria-label={t('title')}
-            className="fixed inset-0 z-50 flex flex-col bg-white shadow-2xl sm:inset-auto sm:right-5 sm:bottom-5 sm:h-[min(34rem,calc(100vh-2.5rem))] sm:w-[23rem] sm:rounded-2xl sm:border sm:border-gray-200 dark:bg-gray-950 sm:dark:border-gray-800"
+            className="fixed inset-0 z-50 flex flex-col bg-white shadow-2xl sm:inset-y-0 sm:right-0 sm:left-auto sm:h-full sm:w-[25rem] sm:border-l sm:border-gray-200 dark:bg-gray-950 sm:dark:border-gray-800"
           >
             {/* Header */}
-            <div className="flex items-center justify-between gap-3 rounded-t-2xl bg-gradient-to-r from-accent-500 to-accent-600 px-4 py-3 text-white">
+            <div className="flex items-center justify-between gap-3 bg-gradient-to-r from-accent-500 to-accent-600 px-4 py-3 text-white">
               <div className="flex items-center gap-2.5">
                 <span className="grid h-9 w-9 place-items-center rounded-full bg-white/20">
                   <Sparkles size={18} />

@@ -8,7 +8,10 @@
       "Bash(node -e \"const d=require\\('./src/i18n/vi/sections.json'\\); console.log\\(JSON.stringify\\(d.contact,null,2\\)\\)\")",
       "Bash(unzip -o CV_NguyenThiDieuHang.docx -d /tmp/cv_extract)",
       "Read(//tmp/cv_extract/**)",
-      "PowerShell(npm run lint 2>&1)"
+      "PowerShell(npm run lint 2>&1)",
+      "Bash(mv \"cv/CV_NguyenThiDieuHang.pdf\" \"public/CV_NguyenThiDieuHang.pdf\")",
+      "Bash(ls -la cv)",
+      "Bash(rmdir cv *)"
     ]
   }
 }
