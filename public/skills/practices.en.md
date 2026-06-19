@@ -20,7 +20,7 @@ I actively apply AI and modern development practices to work faster and with hig
 ## Local AI — *Intermediate*
 
 - Running models directly in the browser/device with no backend.
-- This website runs Qwen2.5 + RAG entirely on the client side.
+- This website runs Model + RAG entirely on the client side.
 
 ---
 

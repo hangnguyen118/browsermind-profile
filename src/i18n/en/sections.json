@@ -7,7 +7,7 @@
   },
   "about": {
     "heading": "About",
-    "body": "I'm a Software Engineering graduate from HUTECH with hands-on experience across front-end and back-end web development, including an internship at Viet Japan Partner. I'm Microsoft Azure (AZ-900) certified, a fast learner, and eager to grow as a Full Stack Developer building scalable, user-friendly applications.",
+    "body": "I am a Software Engineer graduated from HUTECH with hands-on experience in Full Stack Development and a strong foundation in Azure Cloud. I am passionate about building modern, scalable applications that deliver excellent user experiences. I am particularly interested in AI-Driven Development and process automation, and I continuously expand my skills and knowledge to grow into a well-rounded Full Stack Developer.",
     "highlights": {
       "years": "Years experience",
       "projects": "Projects built",
@@ -17,12 +17,20 @@
     }
   },
   "experience": {
-    "heading": "Experience",
-    "subheading": "Where I've worked",
+    "heading": "Timeline",
+    "subheading": "Key milestones",
     "techLabel": "Tech",
     "exp1": {
       "role": "Web Developer Intern",
       "desc": "Developed web interfaces and integrated APIs. Collaborated with the team on feature development and testing, and gained hands-on experience with system design and backend integration."
+    },
+    "exp2": {
+      "role": "Graduated from HUTECH",
+      "desc": "Graduated with an Engineer's Degree in Information Technology."
+    },
+    "exp3": {
+      "role": "Co-founder · UX/UI Designer & Developer",
+      "desc": "Co-founded PlusLearning, an English-learning web & mobile app startup registered as a household business with 4 members. Led UX/UI design and built the app and website with React Native and React."
     }
   },
   "skills": {
@@ -79,11 +87,11 @@
       "name": "Name",
       "namePlaceholder": "Your name",
       "email": "Email",
-      "emailPlaceholder": "you@company.com",
+      "emailPlaceholder": "abc@company.com",
       "company": "Company",
       "companyPlaceholder": "Company (optional)",
       "message": "Message",
-      "messagePlaceholder": "Tell me a bit about the role or your question…"
+      "messagePlaceholder": "Tell me a bit about the role or your question… I'll be happy to chat!"
     },
     "status": {
       "success": "Thanks! Your message has been sent. I'll reply within 24h.",
