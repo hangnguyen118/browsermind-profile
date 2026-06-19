@@ -20,7 +20,7 @@ Tôi chủ động ứng dụng AI và các phương pháp phát triển hiện 
 ## Local AI — *Intermediate*
 
 - Chạy mô hình ngay trong trình duyệt/thiết bị, không cần backend.
-- Website này dùng mô hình Qwen2.5 + RAG chạy hoàn toàn phía client.
+- Website này dùng Model + RAG chạy hoàn toàn phía client.
 
 ---
 

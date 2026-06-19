@@ -1,6 +1,6 @@
 {
   "title": "Ask AI about me",
-  "subtitle": "Powered by Qwen2.5 in your browser",
+  "subtitle": "Powered in your browser",
   "openAria": "Open AI chat",
   "closeAria": "Close chat",
   "inputPlaceholder": "Ask me anything…",
@@ -11,7 +11,7 @@
     "items": [
       "What's your experience?",
       "Which technologies do you know?",
-      "Tell me about your projects",
+      "Tell me about yourself",
       "How can I contact you?"
     ]
   },

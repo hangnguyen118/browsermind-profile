@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, GraduationCap, Rocket } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { TechTag } from '../ui/TechTag';
 import { TiltCard } from '../ui/TiltCard';
@@ -37,6 +37,8 @@ export function Experience() {
     }
   };
 
+  const ICONS = { briefcase: Briefcase, graduation: GraduationCap, rocket: Rocket };
+
   return (
     <Section
       id="experience"
@@ -51,6 +53,7 @@ export function Experience() {
         <div className="space-y-8">
           {EXPERIENCE.map((item) => {
             const clickable = Boolean(item.markdownDoc || item.websiteUrl);
+            const Icon = ICONS[item.icon ?? 'briefcase'];
             return (
             <motion.div
               key={item.id}
@@ -58,7 +61,7 @@ export function Experience() {
               className="relative pl-12 sm:pl-16"
             >
               <span className="absolute left-0 grid h-9 w-9 place-items-center rounded-full bg-accent-300 text-[#0b2434] shadow sm:h-11 sm:w-11">
-                <Briefcase size={18} />
+                <Icon size={18} />
               </span>
 
               <TiltCard

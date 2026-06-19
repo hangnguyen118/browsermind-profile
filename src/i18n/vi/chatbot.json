@@ -1,6 +1,6 @@
 {
   "title": "Hỏi AI về tôi",
-  "subtitle": "Chạy Qwen2.5 ngay trong trình duyệt",
+  "subtitle": "Chạy ngay trong trình duyệt",
   "openAria": "Mở chat AI",
   "closeAria": "Đóng chat",
   "inputPlaceholder": "Hỏi tôi bất cứ điều gì…",
@@ -11,7 +11,7 @@
     "items": [
       "Bạn có kinh nghiệm gì?",
       "Bạn biết những công nghệ nào?",
-      "Kể về các dự án của bạn",
+      "Kể về bản thân bạn đi",
       "Làm sao để liên hệ với bạn?"
     ]
   },
