@@ -52,11 +52,10 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     categoryKey: 'frontend',
     skills: [
-      { name: 'React.js', level: 'Advanced' },
+      { name: 'React.js', level: 'Expert' },
       { name: 'TypeScript', level: 'Advanced' },
-      { name: 'JavaScript', level: 'Advanced' },
-      { name: 'HTML / CSS', level: 'Advanced' },
-      { name: 'Next.js', level: 'Intermediate' },
+      { name: 'HTML / CSS / JS', level: 'Advanced' },
+      { name: 'Next.js', level: 'Advanced' },
       { name: 'Angular', level: 'Intermediate' },
     ],
   },
@@ -71,13 +70,12 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
-    categoryKey: 'devops',
+    categoryKey: 'practices',
     skills: [
-      { name: 'Git & GitHub', level: 'Advanced' },
-      { name: 'Vercel', level: 'Intermediate' },
-      { name: 'Azure DevOps', level: 'Intermediate' },
-      { name: 'Figma', level: 'Intermediate' },
-      { name: 'Adobe XD', level: 'Beginner' },
+      { name: 'Prompt Engineering', level: 'Advanced' },
+      { name: 'Spec-Driven Development', level: 'Intermediate' },
+      { name: 'AI-Assisted Development', level: 'Intermediate' },
+      { name: 'Local AI', level: 'Intermediate' },
     ],
   },
   {
@@ -89,6 +87,15 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: 'Communication', level: 'Intermediate' },
     ],
   },
+    {
+    categoryKey: 'devops',
+    skills: [
+      { name: 'Git', level: 'Advanced' },
+      { name: 'Scrum Agile', level: 'Advanced' },
+      { name: 'Azure DevOps', level: 'Intermediate' },
+      { name: 'Figma', level: 'Advanced' },
+    ]
+  }
 ];
 
 export const PROJECTS: ProjectItem[] = [
