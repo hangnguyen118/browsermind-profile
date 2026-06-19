@@ -7,7 +7,7 @@
   },
   "about": {
     "heading": "Giới thiệu",
-    "body": "Tôi là kỹ sư ngành Kỹ thuật phần mềm tốt nghiệp HUTECH, có kinh nghiệm thực hành cả front-end lẫn back-end, bao gồm kỳ thực tập tại Viet Japan Partner. Tôi có chứng chỉ Microsoft Azure (AZ-900), học hỏi nhanh và mong muốn phát triển thành Full Stack Developer xây dựng các ứng dụng dễ dùng, có khả năng mở rộng.",
+    "body": "Tôi là kỹ sư phần mềm tốt nghiệp HUTECH với kinh nghiệm thực hành Full Stack Development và nền tảng Azure Cloud. Tôi đam mê xây dựng các ứng dụng hiện đại, tối ưu trải nghiệm người dùng và có khả năng mở rộng. Bên cạnh đó, tôi đặc biệt quan tâm đến AI-Driven Development, tự động hóa quy trình và không ngừng học hỏi để phát triển thành một Full Stack Developer toàn diện.",
     "highlights": {
       "years": "Năm kinh nghiệm",
       "projects": "Dự án đã làm",
@@ -17,12 +17,20 @@
     }
   },
   "experience": {
-    "heading": "Kinh nghiệm",
-    "subheading": "Những nơi tôi từng làm",
+    "heading": "Các mốc thời gian",
+    "subheading": "Những cột mốc chính",
     "techLabel": "Công nghệ",
     "exp1": {
       "role": "Thực tập sinh Lập trình Web",
       "desc": "Phát triển giao diện web và tích hợp API. Phối hợp cùng nhóm phát triển và kiểm thử tính năng, tích lũy kinh nghiệm thực tế về thiết kế hệ thống và tích hợp backend."
+    },
+    "exp2": {
+      "role": "Tốt nghiệp HUTECH",
+      "desc": "Tốt nghiệp Kỹ sư ngành Công nghệ Thông tin."
+    },
+    "exp3": {
+      "role": "Đồng sáng lập · UX/UI Designer & Lập trình viên",
+      "desc": "Đồng sáng lập PlusLearning — startup ứng dụng web & mobile học tiếng Anh, đăng ký hộ kinh doanh với 4 thành viên. Đảm nhận chính về thiết kế UX/UI và phát triển app cùng website bằng React Native và React."
     }
   },
   "skills": {
@@ -79,11 +87,11 @@
       "name": "Tên",
       "namePlaceholder": "Tên của bạn",
       "email": "Email",
-      "emailPlaceholder": "ban@congty.com",
+      "emailPlaceholder": "abc@congty.com",
       "company": "Công ty",
       "companyPlaceholder": "Công ty (không bắt buộc)",
       "message": "Tin nhắn",
-      "messagePlaceholder": "Cho tôi biết đôi chút về vị trí hoặc câu hỏi của bạn…"
+      "messagePlaceholder": "Cho tôi biết đôi chút về vị trí hoặc câu hỏi của bạn… Tôi sẽ rất vui được trò chuyện!"
     },
     "status": {
       "success": "Cảm ơn bạn! Tin nhắn đã được gửi. Tôi sẽ phản hồi trong 24 giờ.",

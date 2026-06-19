@@ -114,6 +114,8 @@ export interface ExperienceItem {
   /** i18n key for the description. */
   descKey: string;
   tech: string[];
+  /** Timeline marker icon (defaults to "briefcase"). */
+  icon?: 'briefcase' | 'graduation' | 'rocket';
   /** Optional company website, embedded in the left side panel on click. */
   websiteUrl?: string;
   /**

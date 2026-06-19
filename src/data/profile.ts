@@ -36,7 +36,28 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'Email', href: `mailto:${PROFILE.email}`, icon: 'mail' },
 ];
 
+// Career & education milestones, newest first (rendered as a vertical timeline).
 export const EXPERIENCE: ExperienceItem[] = [
+  {
+    id: 'exp3',
+    company: 'PlusLearning',
+    roleKey: 'exp3.role',
+    period: '05/2025 — 03/2026',
+    descKey: 'exp3.desc',
+    tech: ['UX/UI Design', 'React Native', 'React', 'Figma'],
+    icon: 'rocket',
+    markdownDoc: 'pluslearning',
+  },
+  {
+    id: 'exp2',
+    company: 'Ho Chi Minh City University of Technology (HUTECH)',
+    roleKey: 'exp2.role',
+    period: '01/2025',
+    descKey: 'exp2.desc',
+    tech: [],
+    icon: 'graduation',
+    markdownDoc: 'hutech',
+  },
   {
     id: 'exp1',
     company: 'Viet Japan Partner',
@@ -44,6 +65,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     period: '05/2024 — 06/2024',
     descKey: 'exp1.desc',
     tech: ['Web Development', 'REST APIs', 'Teamwork'],
+    icon: 'briefcase',
     markdownDoc: 'vietjapan',
   },
 ];
