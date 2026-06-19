@@ -19,10 +19,10 @@ My internship at Viet Japan Partner was my first real step bringing what I'd lea
 
 ## Tech
 
-`Web Development` · `REST APIs` · `Teamwork`
+`Web Development` · `REST APIs` · `Teamwork` · `NextJS` · `Laravel`
 
 ---
 
 > This is where I realized I genuinely enjoy web development and want to pursue it seriously.
 
-🔗 Company website: [vj-digital.com](https://vj-digital.com/)
+🔗 Project Website: [vjp-connect.com](https://vjp-connect.com/en)

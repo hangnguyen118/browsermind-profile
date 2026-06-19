@@ -1,27 +1,27 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   motion,
   useMotionValue,
   useReducedMotion,
   useSpring,
   useTransform,
-} from 'framer-motion';
-import { Download, MessageSquareText, Send } from 'lucide-react';
-import { SocialLinks } from '../ui/SocialLinks';
-import { PROFILE } from '../../data/profile';
-import { fadeUp, staggerContainer } from '../../lib/motion';
-import { openChat } from '../../lib/chatBus';
-import { openSidePanel } from '../../lib/sidePanelBus';
+} from "framer-motion";
+import { Download, MessageSquareText, Send } from "lucide-react";
+import { SocialLinks } from "../ui/SocialLinks";
+import { PROFILE } from "../../data/profile";
+import { fadeUp, staggerContainer } from "../../lib/motion";
+import { openChat } from "../../lib/chatBus";
+import { openSidePanel } from "../../lib/sidePanelBus";
 
 // three.js + react-three-fiber are heavy, so the WebGL backdrop loads as its
 // own async chunk — the hero text/avatar paint immediately, the 3D fades in.
-const HeroBackground3D = lazy(() => import('./HeroBackground3D'));
+const HeroBackground3D = lazy(() => import("./HeroBackground3D"));
 
 const POINTER_SPRING = { stiffness: 120, damping: 20, mass: 0.5 } as const;
 
 export function Hero() {
-  const { t } = useTranslation(['sections', 'common']);
+  const { t } = useTranslation(["sections", "common"]);
   const [avatarError, setAvatarError] = useState(false);
   const [show3d, setShow3d] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -50,7 +50,7 @@ export function Hero() {
   }, []);
 
   function handlePointerMove(e: React.PointerEvent<HTMLElement>) {
-    if (e.pointerType === 'touch') return;
+    if (e.pointerType === "touch") return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -70,9 +70,9 @@ export function Hero() {
   // Open the CV PDF in the left side panel when the avatar is clicked.
   function openCv() {
     openSidePanel({
-      kind: 'pdf',
-      title: t('hero.name'),
-      subtitle: 'CV',
+      kind: "pdf",
+      title: t("hero.name"),
+      subtitle: "CV",
       url: PROFILE.cvUrl,
     });
   }
@@ -90,7 +90,7 @@ export function Hero() {
           aria-hidden
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="pointer-events-none absolute inset-0 -z-10"
         >
           <Suspense fallback={null}>
@@ -123,25 +123,25 @@ export function Hero() {
               variants={fadeUp}
               className="text-base font-medium text-accent-600 dark:text-accent-300"
             >
-              {t('hero.greeting')}
+              {t("hero.greeting")}
             </motion.p>
             <motion.h1
               variants={fadeUp}
               className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
             >
-              {t('hero.name')}
+              {t("hero.name")}
             </motion.h1>
             <motion.p
               variants={fadeUp}
               className="mt-3 text-xl font-semibold accent-gradient-text sm:text-2xl"
             >
-              {t('hero.title')}
+              {t("hero.title")}
             </motion.p>
             <motion.p
               variants={fadeUp}
               className="mt-5 text-base leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              {t('hero.tagline')}
+              {t("hero.tagline")}
             </motion.p>
 
             <motion.div
@@ -154,14 +154,14 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent-600"
               >
                 <Download size={18} />
-                {t('common:actions.downloadCv')}
+                {t("common:actions.downloadCv")}
               </a>
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition-all hover:-translate-y-0.5 hover:border-accent-300 dark:border-gray-700 dark:text-gray-200"
               >
                 <Send size={18} />
-                {t('common:actions.contact')}
+                {t("common:actions.contact")}
               </a>
               <button
                 type="button"
@@ -169,7 +169,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 dark:bg-white dark:text-gray-900"
               >
                 <MessageSquareText size={18} />
-                {t('common:actions.chatWithAi')}
+                {t("common:actions.chatWithAi")}
               </button>
             </motion.div>
 
@@ -187,12 +187,12 @@ export function Hero() {
               tabIndex={0}
               onClick={openCv}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   openCv();
                 }
               }}
-              aria-label={t('common:actions.downloadCv')}
+              aria-label={t("common:actions.downloadCv")}
               style={{
                 x: avatarX,
                 y: avatarY,
@@ -207,7 +207,7 @@ export function Hero() {
                 {!avatarError ? (
                   <img
                     src={PROFILE.avatarUrl}
-                    alt={t('hero.name')}
+                    alt={t("hero.name")}
                     onError={() => setAvatarError(true)}
                     className="h-full w-full object-cover"
                   />

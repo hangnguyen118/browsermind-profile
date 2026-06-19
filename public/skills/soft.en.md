@@ -1,6 +1,6 @@
 # Soft Skills
 
-Technical skills help me build products; soft skills help me work effectively with others.
+I continuously focus on developing and improving my soft skills to work effectively in team environments and deliver better results.
 
 ## Problem Solving — *Advanced*
 
@@ -24,4 +24,4 @@ Technical skills help me build products; soft skills help me work effectively wi
 
 ---
 
-> Technology keeps changing, but the ability to learn and work with others always holds value.
+> Technology evolves constantly, but the ability to learn and work well with others remains timeless.

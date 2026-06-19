@@ -19,10 +19,10 @@ Kỳ thực tập tại Viet Japan Partner là bước đệm thực tế đầu
 
 ## Công nghệ
 
-`Web Development` · `REST APIs` · `Teamwork`
+`Web Development` · `REST APIs` · `Teamwork` · `NextJS` · `Laravel`
 
 ---
 
 > Đây là nơi tôi nhận ra mình thực sự yêu thích phát triển web và muốn theo đuổi nghiêm túc.
 
-🔗 Website công ty: [vj-digital.com](https://vj-digital.com/)
+🔗 Website chúng tôi đã làm: [vjp-connect.com](https://vjp-connect.com/en)

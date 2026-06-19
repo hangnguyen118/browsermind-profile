@@ -1,27 +1,27 @@
 # Soft Skills
 
-Kỹ năng kỹ thuật giúp tôi xây dựng sản phẩm, còn kỹ năng mềm giúp tôi làm việc hiệu quả cùng người khác.
+Tôi luôn chú trọng phát triển và cải thiện các kỹ năng mềm để làm việc hiệu quả trong môi trường nhóm và mang lại kết quả tốt hơn.
 
-## Problem Solving — *Advanced*
+## Problem Solving — _Advanced_
 
-- Phân rã vấn đề lớn thành các phần nhỏ dễ xử lý.
-- Tư duy logic, tìm giải pháp gốc rễ thay vì chữa triệu chứng.
+- Phân rã các vấn đề phức tạp thành những phần nhỏ, dễ xử lý.
+- Tư duy logic, tập trung tìm ra nguyên nhân gốc rễ thay vì chỉ xử lý bề mặt vấn đề.
 
-## Fast Learner — *Advanced*
+## Fast Learner — _Advanced_
 
-- Tiếp cận công nghệ mới nhanh và áp dụng vào thực tế.
-- Chủ động tự học qua tài liệu, dự án thực hành và cộng đồng.
+- Chủ động cập nhật các công nghệ mới và áp dụng thông qua các dự án thực tế.
+- Tự học thông qua tài liệu, dự án thực hành và cộng đồng công nghệ.
 
-## Teamwork — *Advanced*
+## Teamwork — _Advanced_
 
-- Phối hợp tốt trong môi trường Agile.
-- Sẵn sàng hỗ trợ đồng đội và chia sẻ kiến thức.
+- Phối hợp hiệu quả trong môi trường phát triển Agile.
+- Chủ động hỗ trợ đồng đội và chia sẻ kiến thức khi cần thiết.
 
-## Communication — *Intermediate*
+## Communication — _Intermediate_
 
-- Trình bày ý tưởng kỹ thuật rõ ràng cho cả người không chuyên.
-- Giao tiếp tốt trong môi trường chuyên môn (tiếng Anh B1).
+- Trình bày rõ ràng các ý tưởng kỹ thuật cho cả người không chuyên.
+- Giao tiếp tốt trong môi trường chuyên môn (trình độ tiếng Anh B1).
 
 ---
 
-> Công nghệ thay đổi liên tục, nhưng khả năng học hỏi và làm việc cùng người khác luôn có giá trị.
+> Công nghệ luôn thay đổi, nhưng khả năng học hỏi và làm việc hiệu quả với người khác luôn có giá trị lâu dài.
