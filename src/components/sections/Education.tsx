@@ -4,9 +4,37 @@ import { Section } from '../ui/Section';
 import { TiltCard } from '../ui/TiltCard';
 import { EDUCATION } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
+import { openSidePanel } from '../../lib/sidePanelBus';
+import type { EducationItem } from '../../types';
 
 export function Education() {
   const { t } = useTranslation('sections');
+
+  // Open the school in the left side panel: the transcript PDF if we have one,
+  // otherwise a small details "blog" card.
+  const view = (item: EducationItem) => {
+    const degree = t(`education.${item.degreeKey}`);
+    if (item.transcriptUrl) {
+      openSidePanel({
+        kind: 'pdf',
+        title: item.school,
+        subtitle: `${degree} · ${item.period}`,
+        url: item.transcriptUrl,
+      });
+      return;
+    }
+    openSidePanel({
+      kind: 'blog',
+      title: item.school,
+      subtitle: `${degree} · ${item.period}`,
+      html: `
+        <h2>${degree}</h2>
+        <p><strong>${item.school}</strong></p>
+        <p>${item.period}</p>
+        ${item.gpa ? `<p>${t('education.gpaLabel')}: ${item.gpa}</p>` : ''}
+      `,
+    });
+  };
 
   return (
     <Section
@@ -20,7 +48,17 @@ export function Education() {
             key={item.id}
             variants={fadeUp}
             intensity={5}
-            className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+            role="button"
+            tabIndex={0}
+            onClick={() => view(item)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                view(item);
+              }
+            }}
+            aria-label={item.school}
+            className="flex cursor-pointer items-start gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 dark:border-gray-800 dark:bg-gray-900"
           >
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-accent-100 text-accent-700 dark:bg-accent-900/40 dark:text-accent-200">
               <GraduationCap size={24} />

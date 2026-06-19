@@ -9,6 +9,7 @@ import { Education } from './components/sections/Education';
 import { Certificates } from './components/sections/Certificates';
 import { Contact } from './components/sections/Contact';
 import { ChatbotWidget } from './components/chatbot/ChatbotWidget';
+import { SidePanel } from './components/layout/SidePanel';
 
 export default function App() {
   return (
@@ -38,6 +39,9 @@ export default function App() {
       {/* The transformers.js runtime is dynamically imported, so mounting this
           does not bloat the initial bundle — it loads on first chat open. */}
       <ChatbotWidget />
+
+      {/* Global left-side panel — any component can open it via openSidePanel(). */}
+      <SidePanel />
     </div>
   );
 }

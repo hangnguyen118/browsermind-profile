@@ -33,5 +33,10 @@
   "footer": {
     "builtWith": "Built with React, Tailwind & in-browser AI.",
     "rights": "All rights reserved."
+  },
+  "panel": {
+    "closeAria": "Close panel",
+    "openInNewTab": "Open in new tab",
+    "loading": "Loading content…"
   }
 }

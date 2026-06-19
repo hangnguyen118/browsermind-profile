@@ -61,6 +61,48 @@
   }
 }
 
+/* Readable typography for blog content rendered inside the SidePanel.
+   (No typography plugin in this project, so style the essentials by hand.) */
+.panel-prose {
+  @apply text-[15px] leading-relaxed text-gray-700 dark:text-gray-300;
+}
+.panel-prose h1 {
+  @apply mt-6 mb-3 text-2xl font-bold text-gray-900 first:mt-0 dark:text-gray-100;
+}
+.panel-prose h2 {
+  @apply mt-6 mb-2 text-xl font-bold text-gray-900 first:mt-0 dark:text-gray-100;
+}
+.panel-prose h3 {
+  @apply mt-5 mb-2 text-lg font-semibold text-gray-900 dark:text-gray-100;
+}
+.panel-prose p {
+  @apply my-3;
+}
+.panel-prose a {
+  @apply font-medium text-accent-600 underline underline-offset-2 hover:text-accent-700 dark:text-accent-300;
+}
+.panel-prose ul {
+  @apply my-3 list-disc space-y-1 pl-5;
+}
+.panel-prose ol {
+  @apply my-3 list-decimal space-y-1 pl-5;
+}
+.panel-prose img {
+  @apply my-4 rounded-lg;
+}
+.panel-prose blockquote {
+  @apply my-4 border-l-4 border-accent-300 pl-4 italic text-gray-500 dark:text-gray-400;
+}
+.panel-prose code {
+  @apply rounded bg-gray-200 px-1.5 py-0.5 text-[0.85em] dark:bg-gray-800;
+}
+.panel-prose pre {
+  @apply my-4 overflow-x-auto rounded-lg bg-gray-900 p-4 text-sm text-gray-100;
+}
+.panel-prose pre code {
+  @apply bg-transparent p-0;
+}
+
 /* Thin custom scrollbar for the chat panel. */
 .scrollbar-thin {
   scrollbar-width: thin;

@@ -143,6 +143,7 @@ export const EDUCATION: EducationItem[] = [
     degreeKey: 'edu1.degree',
     period: 'Graduated 01/2025',
     gpa: '3.35 / 4.0 (Very Good)',
+    transcriptUrl: './hutect/transcript.pdf',
   },
 ];
 
@@ -152,12 +153,14 @@ export const CERTIFICATES: CertificateItem[] = [
     name: 'Microsoft Azure Fundamentals (AZ-900)',
     issuer: 'Microsoft',
     year: '',
-    verifyUrl: 'https://learn.microsoft.com/credentials/certifications/azure-fundamentals/',
+    verifyUrl: 'https://learn.microsoft.com/api/credentials/share/vi-vn/hangnguyen1108/306DA7D144E07FF7?sharingId=C357452C5EB8224A',
+    pdfUrl: './az900/azure900_cert.pdf',
   },
   {
     id: 'cert2',
     name: 'English B1 Certification',
     issuer: 'CEFR — Intermediate',
     year: '',
+    pdfUrl: './b1/b1_cert.pdf',
   },
 ];

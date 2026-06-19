@@ -33,5 +33,10 @@
   "footer": {
     "builtWith": "Xây dựng bằng React, Tailwind & AI chạy trong trình duyệt.",
     "rights": "Bảo lưu mọi quyền."
+  },
+  "panel": {
+    "closeAria": "Đóng bảng",
+    "openInNewTab": "Mở trong tab mới",
+    "loading": "Đang tải nội dung…"
   }
 }

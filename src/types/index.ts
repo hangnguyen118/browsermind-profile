@@ -136,6 +136,8 @@ export interface EducationItem {
   degreeKey: string;
   period: string;
   gpa?: string;
+  /** Optional academic transcript PDF, shown in the left side panel. */
+  transcriptUrl?: string;
 }
 
 export interface CertificateItem {
@@ -144,4 +146,22 @@ export interface CertificateItem {
   issuer: string;
   year: string;
   verifyUrl?: string;
+  /** Optional PDF of the certificate, shown in the left side panel. */
+  pdfUrl?: string;
 }
+
+// ---------------------------------------------------------------------------
+// Left side panel (opened from any component to display rich content).
+// ---------------------------------------------------------------------------
+
+/**
+ * Content shown in the global left-docked {@link SidePanel}. Any component can
+ * open it via `openSidePanel(...)` (see `lib/sidePanelBus.ts`).
+ */
+export type SidePanelContent =
+  /** A PDF document rendered inline (certificates, CV, papers…). */
+  | { kind: 'pdf'; title: string; subtitle?: string; url: string }
+  /** A blog/article: trusted HTML rendered in a readable prose column. */
+  | { kind: 'blog'; title: string; subtitle?: string; html: string }
+  /** Any external page embedded via an iframe. */
+  | { kind: 'embed'; title: string; subtitle?: string; url: string };
