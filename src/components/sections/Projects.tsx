@@ -18,10 +18,20 @@ import { useGithubProjects } from '../../hooks/useGithubProjects';
 import type { DisplayProject } from '../../types';
 
 export function Projects() {
-  const { t } = useTranslation('sections');
+  const { t, i18n } = useTranslation('sections');
   const [filter, setFilter] = useState<string>('all');
   // Projects are synced exclusively from GitHub (no static fallback).
-  const { status, projects, reload } = useGithubProjects();
+  const { status, projects, syncedAt, reload } = useGithubProjects();
+
+  // Localized "synced {time}" label, only once we have a sync timestamp.
+  const syncedLabel = syncedAt
+    ? t('projects.syncedAt', {
+        time: new Date(syncedAt).toLocaleString(i18n.language, {
+          dateStyle: 'medium',
+          timeStyle: 'short',
+        }),
+      })
+    : null;
 
   // Open the project in the left side panel: the GitHub README if there's a
   // repo, otherwise embed the live demo.
@@ -113,6 +123,29 @@ export function Projects() {
           </button>
         ))}
       </motion.div>
+
+      {/* Auto-sync hint: these projects come live from GitHub, not a static list. */}
+      <motion.p
+        variants={fadeUp}
+        className="-mt-4 mb-8 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-gray-500 dark:text-gray-400"
+      >
+        <RotateCw size={12} className="text-accent-500" />
+        <span>{t('projects.syncHint')}</span>
+        {syncedLabel && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>{syncedLabel}</span>
+          </>
+        )}
+        <button
+          type="button"
+          onClick={reload}
+          className="ml-1 inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 font-medium text-accent-600 transition-colors hover:bg-accent-50 dark:text-accent-300 dark:hover:bg-accent-900/30"
+        >
+          <RotateCw size={11} />
+          {t('projects.refresh')}
+        </button>
+      </motion.p>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((project) => {

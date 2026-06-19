@@ -53,7 +53,10 @@
     },
     "loading": "Loading projects from GitHub…",
     "empty": "No projects to show yet. Tag a repo with the \"portfolio\" topic on GitHub.",
-    "error": "Couldn't load projects from GitHub."
+    "error": "Couldn't load projects from GitHub.",
+    "syncHint": "Auto-synced from GitHub",
+    "syncedAt": "synced {{time}}",
+    "refresh": "Refresh"
   },
   "education": {
     "heading": "Education",

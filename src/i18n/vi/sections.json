@@ -53,7 +53,10 @@
     },
     "loading": "Đang tải dự án từ GitHub…",
     "empty": "Chưa có dự án nào. Hãy gắn topic \"portfolio\" cho repo trên GitHub.",
-    "error": "Không tải được dự án từ GitHub."
+    "error": "Không tải được dự án từ GitHub.",
+    "syncHint": "Tự động đồng bộ từ GitHub",
+    "syncedAt": "đồng bộ lúc {{time}}",
+    "refresh": "Đồng bộ lại"
   },
   "education": {
     "heading": "Học vấn",

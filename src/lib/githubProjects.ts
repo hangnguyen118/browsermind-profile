@@ -82,16 +82,40 @@ function writeCache(data: DisplayProject[]): void {
   }
 }
 
+/**
+ * Timestamp (ms) of the most recent successful GitHub sync, or null if never
+ * synced. Read without the TTL check so the UI can show "last synced" even once
+ * the cache is stale (a fresh fetch rewrites `ts`, so this stays accurate).
+ */
+export function getProjectsSyncedAt(): number | null {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (!raw) return null;
+    const { ts } = JSON.parse(raw) as { ts: number };
+    return typeof ts === 'number' ? ts : null;
+  } catch {
+    return null;
+  }
+}
+
 /** Shared in-flight request so concurrent callers don't double-fetch. */
 let inflight: Promise<DisplayProject[]> | null = null;
 
 /**
  * Fetch portfolio repos (cached + de-duplicated). Sorted by stars, then most
  * recently pushed. Throws on network / API errors so callers can show a state.
+ *
+ * Pass `{ force: true }` to bypass the localStorage cache and re-hit the API —
+ * used by the "refresh" action so newly added GitHub topics show up immediately
+ * instead of waiting out the 10-minute TTL.
  */
-export function fetchGithubProjects(): Promise<DisplayProject[]> {
-  const cached = readCache();
-  if (cached) return Promise.resolve(cached);
+export function fetchGithubProjects(
+  opts: { force?: boolean } = {},
+): Promise<DisplayProject[]> {
+  if (!opts.force) {
+    const cached = readCache();
+    if (cached) return Promise.resolve(cached);
+  }
   if (inflight) return inflight;
 
   inflight = loadFromApi().finally(() => {
