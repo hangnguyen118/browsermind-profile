@@ -8,10 +8,30 @@ import { TiltCard } from '../ui/TiltCard';
 import { PROJECTS } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
 import { cn } from '../../lib/cn';
+import { openSidePanel } from '../../lib/sidePanelBus';
+import type { ProjectItem } from '../../types';
 
 export function Projects() {
   const { t } = useTranslation('sections');
   const [filter, setFilter] = useState<string>('all');
+
+  // Open the project in the left side panel: the GitHub README if there's a
+  // repo, otherwise embed the live demo.
+  const view = (project: ProjectItem) => {
+    const title = t(`projects.${project.nameKey}`);
+    if (project.github) {
+      openSidePanel({
+        kind: 'github',
+        title,
+        subtitle: 'README',
+        repoUrl: project.github,
+      });
+      return;
+    }
+    if (project.demo) {
+      openSidePanel({ kind: 'embed', title, subtitle: 'Demo', url: project.demo });
+    }
+  };
 
   const categories = useMemo(
     () => ['all', ...new Set(PROJECTS.map((p) => p.categoryKey))],
@@ -49,7 +69,9 @@ export function Projects() {
       </motion.div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((project) => (
+        {visible.map((project) => {
+          const clickable = Boolean(project.demo || project.github);
+          return (
           <motion.div
             key={project.id}
             layout
@@ -60,7 +82,25 @@ export function Projects() {
           >
             <TiltCard
               intensity={6}
-              className="group flex h-full flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+              role={clickable ? 'button' : undefined}
+              tabIndex={clickable ? 0 : undefined}
+              onClick={clickable ? () => view(project) : undefined}
+              onKeyDown={
+                clickable
+                  ? (e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        view(project);
+                      }
+                    }
+                  : undefined
+              }
+              aria-label={clickable ? t(`projects.${project.nameKey}`) : undefined}
+              className={cn(
+                'group flex h-full flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900',
+                clickable &&
+                  'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400',
+              )}
             >
               <div className="flex h-32 items-center justify-center bg-gradient-to-br from-accent-200 to-accent-400 dark:from-accent-900/50 dark:to-accent-700/40">
                 <FolderGit2 className="text-white/90" size={40} />
@@ -81,6 +121,7 @@ export function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
                     >
                       <Github size={16} />
@@ -92,6 +133,7 @@ export function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
                     >
                       <ExternalLink size={16} />
@@ -102,7 +144,8 @@ export function Projects() {
               </div>
             </TiltCard>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
     </Section>
   );

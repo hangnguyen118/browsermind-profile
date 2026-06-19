@@ -114,6 +114,8 @@ export interface ExperienceItem {
   /** i18n key for the description. */
   descKey: string;
   tech: string[];
+  /** Optional company website, embedded in the left side panel on click. */
+  websiteUrl?: string;
 }
 
 export interface ProjectItem {
@@ -164,4 +166,8 @@ export type SidePanelContent =
   /** A blog/article: trusted HTML rendered in a readable prose column. */
   | { kind: 'blog'; title: string; subtitle?: string; html: string }
   /** Any external page embedded via an iframe. */
-  | { kind: 'embed'; title: string; subtitle?: string; url: string };
+  | { kind: 'embed'; title: string; subtitle?: string; url: string }
+  /** A GitHub repo's README, fetched & rendered to HTML at open time. */
+  | { kind: 'github'; title: string; subtitle?: string; repoUrl: string }
+  /** A Markdown document (e.g. from /public), fetched & rendered at open time. */
+  | { kind: 'markdown'; title: string; subtitle?: string; url: string };

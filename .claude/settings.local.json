@@ -16,7 +16,8 @@
       "PowerShell(npm install -D @types/three)",
       "PowerShell(npm run build 2>&1)",
       "PowerShell($env:BROWSER='none'; npm run dev)",
-      "PowerShell(npm run lint)"
+      "PowerShell(npm run lint)",
+      "PowerShell(npm install marked)"
     ]
   }
 }

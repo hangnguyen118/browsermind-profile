@@ -4,9 +4,10 @@ import type { LucideIcon } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { TiltCard } from '../ui/TiltCard';
 import { SKILL_GROUPS } from '../../data/profile';
-import type { SkillLevel } from '../../types';
+import type { SkillGroup, SkillLevel } from '../../types';
 import { fadeUp } from '../../lib/motion';
 import { cn } from '../../lib/cn';
+import { openSidePanel } from '../../lib/sidePanelBus';
 
 const LEVEL_STEPS: Record<SkillLevel, number> = {
   Beginner: 1,
@@ -42,7 +43,18 @@ function LevelDots({ level }: { level: SkillLevel }) {
 }
 
 export function Skills() {
-  const { t } = useTranslation('sections');
+  const { t, i18n } = useTranslation('sections');
+
+  // Open a Markdown write-up about the skill group in the left side panel.
+  const view = (group: SkillGroup) => {
+    const lang = i18n.language.startsWith('vi') ? 'vi' : 'en';
+    openSidePanel({
+      kind: 'markdown',
+      title: t(`skills.groups.${group.categoryKey}`),
+      subtitle: t('skills.subheading'),
+      url: `./skills/${group.categoryKey}.${lang}.md`,
+    });
+  };
 
   return (
     <Section
@@ -58,7 +70,17 @@ export function Skills() {
               key={group.categoryKey}
               variants={fadeUp}
               intensity={6}
-              className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+              role="button"
+              tabIndex={0}
+              onClick={() => view(group)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  view(group);
+                }
+              }}
+              aria-label={t(`skills.groups.${group.categoryKey}`)}
+              className="cursor-pointer rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 dark:border-gray-800 dark:bg-gray-900"
             >
               <div className="mb-4 flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent-100 text-accent-700 dark:bg-accent-900/40 dark:text-accent-200">

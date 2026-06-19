@@ -45,6 +45,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     period: '05/2024 — 06/2024',
     descKey: 'exp1.desc',
     tech: ['Web Development', 'REST APIs', 'Teamwork'],
+    websiteUrl: 'https://vj-digital.com/',
   },
 ];
 

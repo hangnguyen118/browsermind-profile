@@ -6,9 +6,23 @@ import { TechTag } from '../ui/TechTag';
 import { TiltCard } from '../ui/TiltCard';
 import { EXPERIENCE } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
+import { cn } from '../../lib/cn';
+import { openSidePanel } from '../../lib/sidePanelBus';
+import type { ExperienceItem } from '../../types';
 
 export function Experience() {
   const { t } = useTranslation('sections');
+
+  // Embed the company website in the left side panel.
+  const view = (item: ExperienceItem) => {
+    if (!item.websiteUrl) return;
+    openSidePanel({
+      kind: 'embed',
+      title: item.company,
+      subtitle: t(`experience.${item.roleKey}`),
+      url: item.websiteUrl,
+    });
+  };
 
   return (
     <Section
@@ -34,7 +48,25 @@ export function Experience() {
 
               <TiltCard
                 intensity={5}
-                className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                role={item.websiteUrl ? 'button' : undefined}
+                tabIndex={item.websiteUrl ? 0 : undefined}
+                onClick={item.websiteUrl ? () => view(item) : undefined}
+                onKeyDown={
+                  item.websiteUrl
+                    ? (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          view(item);
+                        }
+                      }
+                    : undefined
+                }
+                aria-label={item.websiteUrl ? item.company : undefined}
+                className={cn(
+                  'rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900',
+                  item.websiteUrl &&
+                    'cursor-pointer transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400',
+                )}
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <h3 className="text-lg font-bold">

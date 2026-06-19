@@ -37,6 +37,8 @@
   "panel": {
     "closeAria": "Đóng bảng",
     "openInNewTab": "Mở trong tab mới",
-    "loading": "Đang tải nội dung…"
+    "openOnGithub": "Mở trên GitHub",
+    "loading": "Đang tải nội dung…",
+    "loadError": "Không tải được nội dung. Vui lòng thử lại sau."
   }
 }

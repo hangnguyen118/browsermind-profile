@@ -1,7 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ExternalLink, FileText, Newspaper, Globe, X } from 'lucide-react';
+import { marked } from 'marked';
+import {
+  BookOpen,
+  ExternalLink,
+  FileText,
+  Github,
+  Globe,
+  Loader2,
+  Newspaper,
+  X,
+} from 'lucide-react';
 import type { SidePanelContent } from '../../types';
 import { onOpenSidePanel } from '../../lib/sidePanelBus';
 
@@ -10,6 +20,8 @@ const KIND_ICON = {
   pdf: FileText,
   blog: Newspaper,
   embed: Globe,
+  github: Github,
+  markdown: BookOpen,
 } as const;
 
 /**
@@ -35,6 +47,15 @@ export function SidePanel() {
 
   const close = () => setContent(null);
   const Icon = content ? KIND_ICON[content.kind] : FileText;
+
+  // External link shown in the footer (none for self-contained prose content).
+  const externalUrl = !content
+    ? null
+    : content.kind === 'github'
+      ? content.repoUrl
+      : content.kind === 'pdf' || content.kind === 'embed'
+        ? content.url
+        : null;
 
   return (
     <AnimatePresence>
@@ -93,15 +114,19 @@ export function SidePanel() {
             </div>
 
             {/* Footer action for external content */}
-            {content.kind !== 'blog' && (
+            {externalUrl && (
               <a
-                href={content.url}
+                href={externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-1.5 border-t border-gray-200 bg-white py-3 text-sm font-semibold text-accent-600 hover:bg-accent-50 dark:border-gray-800 dark:bg-gray-950 dark:text-accent-300 dark:hover:bg-gray-900"
               >
                 <ExternalLink size={15} />
-                {t('panel.openInNewTab')}
+                {t(
+                  content.kind === 'github'
+                    ? 'panel.openOnGithub'
+                    : 'panel.openInNewTab',
+                )}
               </a>
             )}
           </motion.aside>
@@ -125,6 +150,14 @@ function PanelBody({ content }: { content: SidePanelContent }) {
     );
   }
 
+  if (content.kind === 'github') {
+    return <RemoteProse load={() => loadReadme(content.repoUrl)} />;
+  }
+
+  if (content.kind === 'markdown') {
+    return <RemoteProse load={() => loadMarkdown(content.url)} />;
+  }
+
   // pdf + embed both render in an iframe; #view hides the PDF toolbar chrome.
   const src = content.kind === 'pdf' ? `${content.url}#view=FitH` : content.url;
   return (
@@ -137,5 +170,90 @@ function PanelBody({ content }: { content: SidePanelContent }) {
     >
       {t('panel.loading')}
     </iframe>
+  );
+}
+
+/** Parse `owner` / `repo` out of a github.com URL. */
+function parseRepo(url: string): { owner: string; repo: string } | null {
+  const m = url.match(/github\.com\/([^/]+)\/([^/?#]+)/);
+  if (!m) return null;
+  return { owner: m[1], repo: m[2].replace(/\.git$/, '') };
+}
+
+/**
+ * Fetch a repo's README already rendered to HTML by the GitHub API
+ * (`Accept: application/vnd.github.html`). GitHub sanitises that HTML.
+ */
+async function loadReadme(repoUrl: string): Promise<string> {
+  const repo = parseRepo(repoUrl);
+  if (!repo) throw new Error('bad repo url');
+  const res = await fetch(
+    `https://api.github.com/repos/${repo.owner}/${repo.repo}/readme`,
+    { headers: { Accept: 'application/vnd.github.html' } },
+  );
+  if (!res.ok) throw new Error(String(res.status));
+  return res.text();
+}
+
+/** Fetch a Markdown file and render it to HTML. Our own files, so trusted. */
+async function loadMarkdown(url: string): Promise<string> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(String(res.status));
+  return marked.parse(await res.text());
+}
+
+type ProseState =
+  | { status: 'loading' }
+  | { status: 'error' }
+  | { status: 'ready'; html: string };
+
+/**
+ * Fetches HTML lazily via `load` and renders it in the readable prose column,
+ * with loading and error states. Used for GitHub READMEs and Markdown docs —
+ * both produce sanitised/own-authored HTML, so injecting it is safe.
+ */
+function RemoteProse({ load }: { load: () => Promise<string> }) {
+  const { t } = useTranslation('common');
+  const [state, setState] = useState<ProseState>({ status: 'loading' });
+
+  useEffect(() => {
+    let cancelled = false;
+    setState({ status: 'loading' });
+    load()
+      .then((html) => {
+        if (!cancelled) setState({ status: 'ready', html });
+      })
+      .catch(() => {
+        if (!cancelled) setState({ status: 'error' });
+      });
+    return () => {
+      cancelled = true;
+    };
+    // `load` is recreated per render; the panel only mounts one doc at a time.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (state.status === 'loading') {
+    return (
+      <div className="flex h-full items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+        <Loader2 size={16} className="animate-spin" />
+        {t('panel.loading')}
+      </div>
+    );
+  }
+
+  if (state.status === 'error') {
+    return (
+      <div className="flex h-full items-center justify-center px-6 text-center text-sm text-gray-500 dark:text-gray-400">
+        {t('panel.loadError')}
+      </div>
+    );
+  }
+
+  return (
+    <article
+      className="panel-prose mx-auto max-w-prose px-5 py-6"
+      dangerouslySetInnerHTML={{ __html: state.html }}
+    />
   );
 }

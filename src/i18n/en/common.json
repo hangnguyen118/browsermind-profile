@@ -37,6 +37,8 @@
   "panel": {
     "closeAria": "Close panel",
     "openInNewTab": "Open in new tab",
-    "loading": "Loading content…"
+    "openOnGithub": "Open on GitHub",
+    "loading": "Loading content…",
+    "loadError": "Couldn't load the content. Please try again later."
   }
 }
