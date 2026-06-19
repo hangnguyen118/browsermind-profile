@@ -37,6 +37,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 // Career & education milestones, newest first (rendered as a vertical timeline).
+// Career & education milestones, newest first (rendered as a vertical timeline).
 export const EXPERIENCE: ExperienceItem[] = [
   {
     id: 'exp3',
