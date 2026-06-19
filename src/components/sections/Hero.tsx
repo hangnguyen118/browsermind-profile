@@ -127,7 +127,7 @@ export function Hero() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+              className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl leading-tight"
             >
               {t("hero.name")}
             </motion.h1>
