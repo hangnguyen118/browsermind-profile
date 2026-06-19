@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "actions": {
+    "downloadCv": "Download CV",
+    "contact": "Contact",
+    "chatWithAi": "Chat with AI",
+    "viewProject": "View",
+    "demo": "Demo",
+    "code": "Code",
+    "verify": "Verify",
+    "send": "Send",
+    "sending": "Sending…",
+    "backToTop": "Back to top"
+  },
+  "theme": {
+    "toggle": "Toggle dark mode",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "label": "Language",
+    "vi": "Tiếng Việt",
+    "en": "English"
+  },
+  "footer": {
+    "builtWith": "Built with React, Tailwind & in-browser AI.",
+    "rights": "All rights reserved."
+  }
+}

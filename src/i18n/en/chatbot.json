@@ -1,0 +1,45 @@
+{
+  "title": "Ask AI about me",
+  "subtitle": "Powered by Qwen2.5 in your browser",
+  "openAria": "Open AI chat",
+  "closeAria": "Close chat",
+  "inputPlaceholder": "Ask me anything…",
+  "sendAria": "Send message",
+  "welcome": "Hi! I'm an AI assistant that can answer questions about Hoang Dung — experience, skills, projects, and more. What would you like to know?",
+  "suggestions": {
+    "label": "Try asking",
+    "items": [
+      "What's your experience?",
+      "Which technologies do you know?",
+      "Tell me about your projects",
+      "How can I contact you?"
+    ]
+  },
+  "loader": {
+    "title": "Loading AI model",
+    "subtitle": "First time only — the model is cached afterwards (~150MB).",
+    "preparing": "Preparing…",
+    "downloading": "Downloading {{file}}",
+    "ready": "Ready!"
+  },
+  "errors": {
+    "load": "Couldn't load the AI model. Your browser may not support it, or the network failed. Please try again.",
+    "generate": "Sorry, I ran into an error generating a response. Please try again."
+  },
+  "typing": "Thinking…",
+  "fallback": "I don't have that information. Please contact directly via email: {{email}}.",
+  "contactFlow": {
+    "offer": "Would you like to send a message to Hoang Dung?",
+    "askName": "Great! What's your name?",
+    "askEmail": "Thanks {{name}}! What's your email address?",
+    "askMessage": "Got it. What message would you like to send?",
+    "sending": "Sending your message…",
+    "success": "Sent successfully! Hoang Dung will reply within 24h.",
+    "error": "Sorry, sending failed. Please email directly: {{email}}.",
+    "cancelled": "No problem — let me know if you change your mind.",
+    "invalidEmail": "That doesn't look like a valid email. Could you re-enter it?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "disclaimer": "AI responses are generated locally and may be imperfect."
+}

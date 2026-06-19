@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode (toggled by adding `.dark` to <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Baby-blue accent palette (SPEC §11). Tailwind exposes these as `accent-*`. */
+  --color-accent-50: #f0f9ff;
+  --color-accent-100: #e0f2fe;
+  --color-accent-200: #bae6fd;
+  --color-accent-300: #89cff0;
+  --color-accent-400: #5bb8e8;
+  --color-accent-500: #38a3dd;
+  --color-accent-600: #2a86c4;
+  --color-accent-700: #246aa0;
+  --color-accent-800: #235984;
+  --color-accent-900: #224a6d;
+  --color-accent-950: #172f48;
+
+  /* Single source of truth for "the accent" referenced in SPEC. */
+  --color-accent: #89cff0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* offset for sticky header on anchor jumps */
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100;
+    font-family: var(--font-sans);
+  }
+
+  /* Respect users who prefer reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  ::selection {
+    background-color: var(--color-accent-300);
+    color: #0b2434;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-10 sm:py-12 lg:py-16;
+  }
+
+  .accent-gradient-text {
+    @apply bg-gradient-to-r from-accent-500 to-accent-700 bg-clip-text text-transparent dark:from-accent-300 dark:to-accent-500;
+  }
+}
+
+/* Thin custom scrollbar for the chat panel. */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-300) transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-300);
+  border-radius: 9999px;
+}

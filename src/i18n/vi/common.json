@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "Giới thiệu",
+    "experience": "Kinh nghiệm",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "education": "Học vấn",
+    "certificates": "Chứng chỉ",
+    "contact": "Liên hệ"
+  },
+  "actions": {
+    "downloadCv": "Tải CV",
+    "contact": "Liên hệ",
+    "chatWithAi": "Chat với AI",
+    "viewProject": "Xem",
+    "demo": "Demo",
+    "code": "Mã nguồn",
+    "verify": "Xác minh",
+    "send": "Gửi",
+    "sending": "Đang gửi…",
+    "backToTop": "Lên đầu trang"
+  },
+  "theme": {
+    "toggle": "Chuyển chế độ tối",
+    "light": "Sáng",
+    "dark": "Tối"
+  },
+  "language": {
+    "label": "Ngôn ngữ",
+    "vi": "Tiếng Việt",
+    "en": "English"
+  },
+  "footer": {
+    "builtWith": "Xây dựng bằng React, Tailwind & AI chạy trong trình duyệt.",
+    "rights": "Bảo lưu mọi quyền."
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "greeting": "Xin chào, tôi là",
+    "name": "Hoàng Dũng",
+    "title": "Software Engineer",
+    "tagline": "Tôi xây dựng các ứng dụng web nhanh và đáng tin cậy từ đầu đến cuối — và trang này có một AI chạy ngay trong trình duyệt để kể cho bạn nghe về tôi."
+  },
+  "about": {
+    "heading": "Giới thiệu",
+    "body": "Tôi là Software Engineer với hơn 4 năm kinh nghiệm xây dựng ứng dụng web full-stack. Tôi coi trọng kiến trúc sạch, hiệu năng và trải nghiệm lập trình viên, và thích biến những ý tưởng sản phẩm còn mơ hồ thành phần mềm tinh tế, đáng tin cậy.",
+    "highlights": {
+      "years": "Năm kinh nghiệm",
+      "projects": "Dự án đã làm",
+      "technologies": "Công nghệ"
+    }
+  },
+  "experience": {
+    "heading": "Kinh nghiệm",
+    "subheading": "Những nơi tôi từng làm",
+    "techLabel": "Công nghệ",
+    "exp1": {
+      "role": "Senior Software Engineer",
+      "desc": "Xây dựng và bảo trì hệ thống dashboard quản lý bằng React và TypeScript. Dẫn dắt việc tối ưu hiệu năng giúp giảm 40% thời gian tải, và hướng dẫn 2 bạn junior."
+    },
+    "exp2": {
+      "role": "Software Engineer",
+      "desc": "Xây dựng ứng dụng di động đa nền tảng bằng React Native và backend REST API. Thiết lập CI/CD với GitHub Actions và kiểm thử tự động, release hàng tuần."
+    },
+    "exp3": {
+      "role": "Junior Developer",
+      "desc": "Phát triển website marketing và công cụ nội bộ với giao diện responsive, dễ tiếp cận và tích hợp API bên thứ ba."
+    }
+  },
+  "skills": {
+    "heading": "Kỹ năng",
+    "subheading": "Công cụ tôi sử dụng",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "soft": "Kỹ năng mềm"
+    },
+    "levels": {
+      "Beginner": "Cơ bản",
+      "Intermediate": "Trung cấp",
+      "Advanced": "Nâng cao",
+      "Expert": "Chuyên gia"
+    }
+  },
+  "projects": {
+    "heading": "Dự án",
+    "subheading": "Những gì tôi đã xây dựng",
+    "all": "Tất cả",
+    "filters": {
+      "ai": "AI",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "proj1": {
+      "name": "AI Profile Website",
+      "desc": "Chính trang này: portfolio phía client với chatbot AI trong trình duyệt (Qwen2.5-0.5B) và RAG trên dữ liệu của tôi — không cần backend."
+    },
+    "proj2": {
+      "name": "Realtime Analytics Dashboard",
+      "desc": "Số liệu thời gian thực với biểu đồ và bộ lọc, tối ưu để render hàng nghìn điểm dữ liệu mượt mà qua WebSocket."
+    },
+    "proj3": {
+      "name": "Ứng dụng Thương mại điện tử",
+      "desc": "App mua sắm đa nền tảng với giỏ hàng, thanh toán và push notification."
+    }
+  },
+  "education": {
+    "heading": "Học vấn",
+    "subheading": "Quá trình học tập",
+    "gpaLabel": "GPA",
+    "edu1": {
+      "degree": "Cử nhân Khoa học Máy tính"
+    }
+  },
+  "certificates": {
+    "heading": "Chứng chỉ",
+    "subheading": "Chứng chỉ & khóa học",
+    "issuedBy": "Cấp bởi"
+  },
+  "contact": {
+    "heading": "Liên hệ",
+    "subheading": "Hãy cùng làm việc",
+    "intro": "Bạn có cơ hội hợp tác hoặc câu hỏi? Gửi tin nhắn cho tôi và tôi sẽ phản hồi trong vòng 24 giờ.",
+    "form": {
+      "name": "Tên",
+      "namePlaceholder": "Tên của bạn",
+      "email": "Email",
+      "emailPlaceholder": "ban@congty.com",
+      "company": "Công ty",
+      "companyPlaceholder": "Công ty (không bắt buộc)",
+      "message": "Tin nhắn",
+      "messagePlaceholder": "Cho tôi biết đôi chút về vị trí hoặc câu hỏi của bạn…"
+    },
+    "status": {
+      "success": "Cảm ơn bạn! Tin nhắn đã được gửi. Tôi sẽ phản hồi trong 24 giờ.",
+      "error": "Có lỗi khi gửi tin nhắn. Vui lòng email trực tiếp cho tôi.",
+      "notConfigured": "Email chưa được cấu hình. Vui lòng liên hệ trực tiếp qua email.",
+      "mailto": "Ứng dụng email của bạn sẽ mở ra với nội dung điền sẵn — chỉ cần bấm gửi. Nếu không có gì xảy ra, hãy email trực tiếp cho tôi."
+    },
+    "mailto": {
+      "subject": "Liên hệ từ {{name}}"
+    },
+    "validation": {
+      "required": "Vui lòng điền đầy đủ các trường bắt buộc.",
+      "email": "Vui lòng nhập địa chỉ email hợp lệ."
+    }
+  }
+}

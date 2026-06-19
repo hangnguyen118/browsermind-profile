@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Hoang Dung",
+    "title": "Software Engineer",
+    "tagline": "I build reliable, fast web applications end to end — and this site runs an AI that can tell you all about me, right in your browser."
+  },
+  "about": {
+    "heading": "About",
+    "body": "I'm a Software Engineer with 4+ years of experience building web applications across the stack. I care about clean architecture, performance, and developer experience, and I enjoy turning fuzzy product ideas into polished, reliable software.",
+    "highlights": {
+      "years": "Years experience",
+      "projects": "Projects shipped",
+      "technologies": "Technologies"
+    }
+  },
+  "experience": {
+    "heading": "Experience",
+    "subheading": "Where I've worked",
+    "techLabel": "Tech",
+    "exp1": {
+      "role": "Senior Software Engineer",
+      "desc": "Build and maintain a management dashboard with React and TypeScript. Led a performance initiative that cut initial load time by 40%, and mentored 2 junior engineers."
+    },
+    "exp2": {
+      "role": "Software Engineer",
+      "desc": "Built a cross-platform mobile app with React Native and a REST API backend. Set up CI/CD with GitHub Actions and automated tests, shipping weekly."
+    },
+    "exp3": {
+      "role": "Junior Developer",
+      "desc": "Developed marketing websites and internal tools with responsive, accessible UIs and third-party API integrations."
+    }
+  },
+  "skills": {
+    "heading": "Skills",
+    "subheading": "Tools I work with",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "soft": "Soft Skills"
+    },
+    "levels": {
+      "Beginner": "Beginner",
+      "Intermediate": "Intermediate",
+      "Advanced": "Advanced",
+      "Expert": "Expert"
+    }
+  },
+  "projects": {
+    "heading": "Projects",
+    "subheading": "Things I've built",
+    "all": "All",
+    "filters": {
+      "ai": "AI",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "proj1": {
+      "name": "AI Profile Website",
+      "desc": "This very site: a client-side portfolio with an in-browser AI chatbot (Qwen2.5-0.5B) and RAG over my knowledge base — no backend."
+    },
+    "proj2": {
+      "name": "Realtime Analytics Dashboard",
+      "desc": "Live metrics with charts and filters, optimized to render thousands of data points smoothly over WebSocket."
+    },
+    "proj3": {
+      "name": "E-commerce Mobile App",
+      "desc": "Cross-platform shopping app with cart, payments, and push notifications."
+    }
+  },
+  "education": {
+    "heading": "Education",
+    "subheading": "Academic background",
+    "gpaLabel": "GPA",
+    "edu1": {
+      "degree": "B.Sc. in Computer Science"
+    }
+  },
+  "certificates": {
+    "heading": "Certificates",
+    "subheading": "Credentials & courses",
+    "issuedBy": "Issued by"
+  },
+  "contact": {
+    "heading": "Contact",
+    "subheading": "Let's work together",
+    "intro": "Have an opportunity or a question? Send me a message and I'll get back to you within 24 hours.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Company (optional)",
+      "message": "Message",
+      "messagePlaceholder": "Tell me a bit about the role or your question…"
+    },
+    "status": {
+      "success": "Thanks! Your message has been sent. I'll reply within 24h.",
+      "error": "Something went wrong sending your message. Please email me directly.",
+      "notConfigured": "Email is not configured yet. Please reach out directly via email.",
+      "mailto": "Your email app should have opened with the message ready — just hit send. If nothing happened, email me directly."
+    },
+    "mailto": {
+      "subject": "Contact from {{name}}"
+    },
+    "validation": {
+      "required": "Please fill in all required fields.",
+      "email": "Please enter a valid email address."
+    }
+  }
+}
