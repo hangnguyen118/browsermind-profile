@@ -6,7 +6,7 @@
 
 ## 1. Tổng Quan (Overview)
 
-Website giới thiệu profile cá nhân dành cho mục đích xin việc, hoàn toàn **client-side** (không có backend). Nổi bật với AI chatbot tích hợp model Qwen2.5-0.5B chạy trực tiếp trên trình duyệt, hỗ trợ RAG để cung cấp thông tin cá nhân chính xác.
+Website giới thiệu profile cá nhân dành cho mục đích xin việc, hoàn toàn **client-side** (không có backend). Nổi bật với AI chatbot tích hợp model Model chạy trực tiếp trên trình duyệt, hỗ trợ RAG để cung cấp thông tin cá nhân chính xác.
 
 **Mục tiêu chính:**
 - Tạo ấn tượng tốt với nhà tuyển dụng trong 30 giây đầu
@@ -24,15 +24,15 @@ Website giới thiệu profile cá nhân dành cho mục đích xin việc, hoà
 | Styling | **Tailwind CSS v4** | Responsive nhanh, dark mode built-in |
 | Dark Mode | **Tailwind `dark:` + class strategy** | Toggle qua JS, persist vào `localStorage` |
 | i18n | **i18next + react-i18next** | Đa ngôn ngữ VI/EN, lazy load translations |
-| AI Inference | **Transformers.js v3** | Chạy Qwen2.5-0.5B ONNX trực tiếp trong browser |
-| AI Model | **Qwen2.5-0.5B (ONNX quantized)** | Nhỏ gọn, chạy client-side, load từ HuggingFace CDN |
+| AI Inference | **Transformers.js v3** | Chạy Model ONNX trực tiếp trong browser |
+| AI Model | **Model (ONNX quantized)** | Nhỏ gọn, chạy client-side, load từ HuggingFace CDN |
 | RAG Embeddings | **Transformers.js** (model: `Xenova/all-MiniLM-L6-v2`) | Tạo embedding cho RAG |
 | Email (Contact) | **EmailJS** | Gửi email không cần backend |
 | Icons | **Lucide React** | Nhẹ, đẹp, tree-shakable |
 | Animation | **Framer Motion** | Scroll animations, transitions |
 | Deployment | **GitHub Pages / Netlify / Vercel** | Static hosting miễn phí |
 
-> **Lưu ý về model:** Model `Qwen2.5-0.5B` dạng `.safetensors` (PyTorch format) trong thư mục local không dùng được trực tiếp trên browser. Transformers.js cần định dạng **ONNX quantized**. Sẽ load từ HuggingFace CDN: `Xenova/Qwen2.5-0.5B-Instruct` (đã được pre-convert).
+> **Lưu ý về model:** Model `Model` dạng `.safetensors` (PyTorch format) trong thư mục local không dùng được trực tiếp trên browser. Transformers.js cần định dạng **ONNX quantized**. Sẽ load từ HuggingFace CDN: `Xenova/Model-Instruct` (đã được pre-convert).
 
 ---
 
@@ -185,7 +185,7 @@ User Input
     ↓
 [Augment Prompt] → ghép context vào system prompt
     ↓
-[Qwen2.5-0.5B] → sinh câu trả lời
+[Model] → sinh câu trả lời
     ↓
 Response
 ```
@@ -406,8 +406,8 @@ Chatbot: "Đã gửi thành công! [Tên] sẽ phản hồi trong 24h."
 
 | Vấn đề | Chi tiết |
 |--------|----------|
-| Model size | Qwen2.5-0.5B ONNX quantized ~150MB → user phải download lần đầu |
+| Model size | Model ONNX quantized ~150MB → user phải download lần đầu |
 | WebGPU | Cần Chrome/Edge mới nhất để inference nhanh; fallback CPU (chậm hơn) |
 | EmailJS free | 200 emails/tháng, nếu vượt cần upgrade |
 | CORS | Tất cả resources phải từ CDN hoặc same-origin |
-| Local model files | `Qwen2.5-0.5B/*.safetensors` không dùng được trong browser (cần ONNX) |
+| Local model files | `Model/*.safetensors` không dùng được trong browser (cần ONNX) |

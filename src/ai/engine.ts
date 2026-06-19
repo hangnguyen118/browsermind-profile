@@ -5,7 +5,7 @@ import type {
 import type { ChatMessage, ModelProgress } from '../types';
 
 /**
- * Transformers.js wrapper that loads Qwen2.5-0.5B-Instruct (ONNX) and generates
+ * Transformers.js wrapper that loads Model-Instruct (ONNX) and generates
  * chat completions fully in the browser. Uses WebGPU when available, falling
  * back to WASM (CPU) otherwise (SPEC §12).
  *
@@ -72,7 +72,7 @@ export async function loadEngine(
     const device = webgpu ? 'webgpu' : 'wasm';
     // Use q4 (int4 weights, fp32 activations) on both devices. The q4f16
     // variant is faster but its fp16 activations are numerically unstable for
-    // the tiny Qwen2.5-0.5B model on many GPUs (Intel/AMD integrated), where it
+    // the tiny Model model on many GPUs (Intel/AMD integrated), where it
     // emits garbage tokens. q4 keeps the download size and quality, just stable.
     const dtype = 'q4';
 

@@ -2,7 +2,7 @@
 
 A fully **client-side** personal portfolio (no backend) for **Nguyen Thi Dieu Hang**,
 a Full Stack Developer and Software Engineering graduate from HUTECH. It ships an
-**in-browser AI chatbot** (Qwen2.5-0.5B via Transformers.js) with **RAG** over a
+**in-browser AI chatbot** (Model via Transformers.js) with **RAG** over a
 personal knowledge base, so visitors can ask questions and get grounded answers —
 all running locally in the browser. Built per [SPEC.md](SPEC.md).
 
@@ -28,7 +28,7 @@ all running locally in the browser. Built per [SPEC.md](SPEC.md).
 | Build        | Vite 7                                                           |
 | Styling      | Tailwind CSS v4                                                  |
 | i18n         | i18next + react-i18next (VI / EN)                                |
-| AI inference | Transformers.js (Qwen2.5-0.5B-Instruct, ONNX, in-browser)       |
+| AI inference | Transformers.js (Model-Q-Instruct, ONNX, in-browser)       |
 | RAG embed    | Transformers.js (`all-MiniLM-L6-v2`)                            |
 | Email        | EmailJS (no backend)                                            |
 | Animation    | Framer Motion · Icons: Lucide                                   |
@@ -86,7 +86,7 @@ Content lives in **three places that must stay in sync** when you update the CV:
    WASM/CPU fallback.
 2. Each question is embedded with `all-MiniLM-L6-v2` and matched against the
    knowledge chunks by cosine similarity (top-K = 4).
-3. The retrieved context is injected into a grounded system prompt; Qwen2.5-0.5B
+3. The retrieved context is injected into a grounded system prompt; Model
    generates the answer in the detected language (VI / EN) and is told not to
    fabricate beyond the context.
 4. A deterministic contact flow collects name → email → message and sends it via
