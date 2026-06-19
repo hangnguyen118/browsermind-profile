@@ -11,17 +11,30 @@ import { openSidePanel } from '../../lib/sidePanelBus';
 import type { ExperienceItem } from '../../types';
 
 export function Experience() {
-  const { t } = useTranslation('sections');
+  const { t, i18n } = useTranslation('sections');
 
-  // Embed the company website in the left side panel.
+  // Open the experience in the left side panel: a Markdown write-up if there is
+  // one, otherwise embed the company website.
   const view = (item: ExperienceItem) => {
-    if (!item.websiteUrl) return;
-    openSidePanel({
-      kind: 'embed',
-      title: item.company,
-      subtitle: t(`experience.${item.roleKey}`),
-      url: item.websiteUrl,
-    });
+    const subtitle = t(`experience.${item.roleKey}`);
+    if (item.markdownDoc) {
+      const lang = i18n.language.startsWith('vi') ? 'vi' : 'en';
+      openSidePanel({
+        kind: 'markdown',
+        title: item.company,
+        subtitle,
+        url: `./experience/${item.markdownDoc}.${lang}.md`,
+      });
+      return;
+    }
+    if (item.websiteUrl) {
+      openSidePanel({
+        kind: 'embed',
+        title: item.company,
+        subtitle,
+        url: item.websiteUrl,
+      });
+    }
   };
 
   return (
@@ -36,7 +49,9 @@ export function Experience() {
         <div className="absolute top-2 left-4 h-full w-px bg-gray-200 sm:left-5 dark:bg-gray-700" />
 
         <div className="space-y-8">
-          {EXPERIENCE.map((item) => (
+          {EXPERIENCE.map((item) => {
+            const clickable = Boolean(item.markdownDoc || item.websiteUrl);
+            return (
             <motion.div
               key={item.id}
               variants={fadeUp}
@@ -48,11 +63,11 @@ export function Experience() {
 
               <TiltCard
                 intensity={5}
-                role={item.websiteUrl ? 'button' : undefined}
-                tabIndex={item.websiteUrl ? 0 : undefined}
-                onClick={item.websiteUrl ? () => view(item) : undefined}
+                role={clickable ? 'button' : undefined}
+                tabIndex={clickable ? 0 : undefined}
+                onClick={clickable ? () => view(item) : undefined}
                 onKeyDown={
-                  item.websiteUrl
+                  clickable
                     ? (e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
@@ -61,10 +76,10 @@ export function Experience() {
                       }
                     : undefined
                 }
-                aria-label={item.websiteUrl ? item.company : undefined}
+                aria-label={clickable ? item.company : undefined}
                 className={cn(
                   'rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900',
-                  item.websiteUrl &&
+                  clickable &&
                     'cursor-pointer transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400',
                 )}
               >
@@ -89,7 +104,8 @@ export function Experience() {
                 </div>
               </TiltCard>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </Section>

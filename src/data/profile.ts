@@ -2,7 +2,6 @@ import type {
   CertificateItem,
   EducationItem,
   ExperienceItem,
-  ProjectItem,
   SkillGroup,
   SocialLink,
 } from '../types';
@@ -45,7 +44,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     period: '05/2024 — 06/2024',
     descKey: 'exp1.desc',
     tech: ['Web Development', 'REST APIs', 'Teamwork'],
-    websiteUrl: 'https://vj-digital.com/',
+    markdownDoc: 'vietjapan',
   },
 ];
 
@@ -99,43 +98,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
   }
 ];
 
-export const PROJECTS: ProjectItem[] = [
-  {
-    id: 'proj1',
-    nameKey: 'proj1.name',
-    descKey: 'proj1.desc',
-    tech: ['React', 'Node.js', 'OpenAI API', 'ElevenLabs'],
-    github: 'https://github.com/hangnguyen118/Esme-Chatbot',
-    categoryKey: 'ai',
-  },
-  {
-    id: 'proj2',
-    nameKey: 'proj2.name',
-    descKey: 'proj2.desc',
-    tech: ['Angular', 'Angular Material', '.NET', 'SQL', 'Azure'],
-    github: 'https://github.com/hangnguyen118/profile-me',
-    demo: 'https://profile-me-website.vercel.app/home',
-    categoryKey: 'web',
-  },
-  {
-    id: 'proj3',
-    nameKey: 'proj3.name',
-    descKey: 'proj3.desc',
-    tech: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
-    github: 'https://github.com/hangnguyen118/flip-card-game',
-    demo: 'https://flip-card-game-seven.vercel.app/',
-    categoryKey: 'game',
-  },
-  {
-    id: 'proj4',
-    nameKey: 'proj4.name',
-    descKey: 'proj4.desc',
-    tech: ['Cocos Creator', 'JavaScript', 'TypeScript'],
-    github: 'https://github.com/hangnguyen118/fruit-catcher-cc2d',
-    demo: 'https://fruit-catcher-cc2d.vercel.app/',
-    categoryKey: 'game',
-  },
-];
+// Projects are no longer stored statically — they are synced from GitHub at
+// runtime (see lib/githubProjects.ts and hooks/useGithubProjects.ts). Tag a
+// repo with the `portfolio` topic to surface it.
 
 export const EDUCATION: EducationItem[] = [
   {

@@ -51,22 +51,9 @@
       "web": "Web",
       "game": "Games"
     },
-    "proj1": {
-      "name": "Esme Chatbot",
-      "desc": "An AI chatbot with voice interaction and real-time responses — OpenAI for intelligent answers and ElevenLabs text-to-speech for natural voice output."
-    },
-    "proj2": {
-      "name": "Portfolio Website",
-      "desc": "A full-stack personal portfolio: Angular + Angular Material UI with a .NET backend on Azure SQL, deployed to Vercel and Azure."
-    },
-    "proj3": {
-      "name": "Flip Card Game",
-      "desc": "A memory-style flip card game with matching logic, smooth animations, a timer, and score tracking."
-    },
-    "proj4": {
-      "name": "Fruit Catcher Mini Game",
-      "desc": "A 2D catch game with keyboard controls, collision detection, real-time spawning, and local-storage score tracking, built in Cocos Creator."
-    }
+    "loading": "Loading projects from GitHub…",
+    "empty": "No projects to show yet. Tag a repo with the \"portfolio\" topic on GitHub.",
+    "error": "Couldn't load projects from GitHub."
   },
   "education": {
     "heading": "Education",

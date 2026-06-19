@@ -116,18 +116,24 @@ export interface ExperienceItem {
   tech: string[];
   /** Optional company website, embedded in the left side panel on click. */
   websiteUrl?: string;
+  /**
+   * Optional Markdown write-up base name in /public/experience. The side panel
+   * loads `./experience/{markdownDoc}.{lang}.md`. Takes priority over websiteUrl.
+   */
+  markdownDoc?: string;
 }
 
-export interface ProjectItem {
+/**
+ * A project resolved to display strings, produced from a fetched GitHub repo
+ * (see lib/githubProjects.ts).
+ */
+export interface DisplayProject {
   id: string;
-  /** i18n key for the project name. */
-  nameKey: string;
-  /** i18n key for the short description. */
-  descKey: string;
+  name: string;
+  description: string;
   tech: string[];
   github?: string;
   demo?: string;
-  /** project category key for optional filtering. */
   categoryKey: string;
 }
 

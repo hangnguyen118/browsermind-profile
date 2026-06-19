@@ -18,6 +18,7 @@
     "verify": "Verify",
     "send": "Send",
     "sending": "Sending…",
+    "retry": "Retry",
     "backToTop": "Back to top"
   },
   "theme": {

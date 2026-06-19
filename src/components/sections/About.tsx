@@ -3,18 +3,23 @@ import { motion } from 'framer-motion';
 import { Section } from '../ui/Section';
 import { TiltCard } from '../ui/TiltCard';
 import { fadeUp } from '../../lib/motion';
-import { CERTIFICATES, PROJECTS, SKILL_GROUPS } from '../../data/profile';
+import { CERTIFICATES, SKILL_GROUPS } from '../../data/profile';
+import { useGithubProjects } from '../../hooks/useGithubProjects';
 
 export function About() {
   const { t } = useTranslation('sections');
+  const { status, projects } = useGithubProjects();
 
   const techCount = new Set(
     SKILL_GROUPS.flatMap((g) => g.skills.map((s) => s.name)),
   ).size;
 
+  // Project count comes from GitHub; show a dash until it has loaded.
+  const projectCount = status === 'ready' ? `${projects.length}` : '—';
+
   const highlights = [
     { value: '3.35', label: t('about.highlights.gpa') },
-    { value: `${PROJECTS.length}`, label: t('about.highlights.projects') },
+    { value: projectCount, label: t('about.highlights.projects') },
     { value: `${techCount}+`, label: t('about.highlights.technologies') },
     {
       value: `${CERTIFICATES.length}`,

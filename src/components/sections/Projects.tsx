@@ -1,44 +1,67 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, FolderGit2 } from 'lucide-react';
+import {
+  Github,
+  ExternalLink,
+  FolderGit2,
+  Loader2,
+  RotateCw,
+} from 'lucide-react';
 import { Section } from '../ui/Section';
 import { TechTag } from '../ui/TechTag';
 import { TiltCard } from '../ui/TiltCard';
-import { PROJECTS } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 import { openSidePanel } from '../../lib/sidePanelBus';
-import type { ProjectItem } from '../../types';
+import { useGithubProjects } from '../../hooks/useGithubProjects';
+import type { DisplayProject } from '../../types';
 
 export function Projects() {
   const { t } = useTranslation('sections');
   const [filter, setFilter] = useState<string>('all');
+  // Projects are synced exclusively from GitHub (no static fallback).
+  const { status, projects, reload } = useGithubProjects();
 
   // Open the project in the left side panel: the GitHub README if there's a
   // repo, otherwise embed the live demo.
-  const view = (project: ProjectItem) => {
-    const title = t(`projects.${project.nameKey}`);
+  const view = (project: DisplayProject) => {
     if (project.github) {
       openSidePanel({
         kind: 'github',
-        title,
+        title: project.name,
         subtitle: 'README',
         repoUrl: project.github,
       });
       return;
     }
     if (project.demo) {
-      openSidePanel({ kind: 'embed', title, subtitle: 'Demo', url: project.demo });
+      openSidePanel({
+        kind: 'embed',
+        title: project.name,
+        subtitle: 'Demo',
+        url: project.demo,
+      });
     }
   };
 
+  // Open the live demo in the side panel (from the card's Demo button).
+  const openDemo = (project: DisplayProject) => {
+    if (!project.demo) return;
+    openSidePanel({
+      kind: 'embed',
+      title: project.name,
+      subtitle: 'Demo',
+      url: project.demo,
+    });
+  };
+
   const categories = useMemo(
-    () => ['all', ...new Set(PROJECTS.map((p) => p.categoryKey))],
-    [],
+    () => ['all', ...new Set(projects.map((p) => p.categoryKey))],
+    [projects],
   );
 
-  const visible = PROJECTS.filter(
+  const visible = projects.filter(
     (p) => filter === 'all' || p.categoryKey === filter,
   );
 
@@ -49,6 +72,29 @@ export function Projects() {
       subheading={t('projects.subheading')}
       muted
     >
+      {status === 'loading' ? (
+        <div className="flex items-center justify-center gap-2 py-16 text-sm text-gray-500 dark:text-gray-400">
+          <Loader2 size={18} className="animate-spin" />
+          {t('projects.loading')}
+        </div>
+      ) : projects.length === 0 ? (
+        <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {status === 'error' ? t('projects.error') : t('projects.empty')}
+          </p>
+          {status === 'error' && (
+            <button
+              type="button"
+              onClick={reload}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:border-accent-300 dark:border-gray-700 dark:text-gray-200"
+            >
+              <RotateCw size={15} />
+              {t('actions.retry', { ns: 'common' })}
+            </button>
+          )}
+        </div>
+      ) : (
+        <>
       {/* Filter chips */}
       <motion.div variants={fadeUp} className="mb-8 flex flex-wrap gap-2">
         {categories.map((cat) => (
@@ -95,7 +141,7 @@ export function Projects() {
                     }
                   : undefined
               }
-              aria-label={clickable ? t(`projects.${project.nameKey}`) : undefined}
+              aria-label={clickable ? project.name : undefined}
               className={cn(
                 'group flex h-full flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900',
                 clickable &&
@@ -106,9 +152,9 @@ export function Projects() {
                 <FolderGit2 className="text-white/90" size={40} />
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-lg font-bold">{t(`projects.${project.nameKey}`)}</h3>
+                <h3 className="text-lg font-bold">{project.name}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                  {t(`projects.${project.descKey}`)}
+                  {project.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
@@ -129,16 +175,17 @@ export function Projects() {
                     </a>
                   )}
                   {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openDemo(project);
+                      }}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
                     >
                       <ExternalLink size={16} />
                       {t('actions.demo', { ns: 'common' })}
-                    </a>
+                    </button>
                   )}
                 </div>
               </div>
@@ -147,6 +194,8 @@ export function Projects() {
           );
         })}
       </div>
+        </>
+      )}
     </Section>
   );
 }

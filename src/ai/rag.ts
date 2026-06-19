@@ -1,6 +1,12 @@
-import type { KnowledgeChunk, Lang, RetrievedChunk } from '../types';
+import type {
+  DisplayProject,
+  KnowledgeChunk,
+  Lang,
+  RetrievedChunk,
+} from '../types';
 import { ALL_KNOWLEDGE_CHUNKS } from '../data';
 import { PROFILE } from '../data/profile';
+import { fetchGithubProjects } from '../lib/githubProjects';
 import { cosineSimilarity, embed, embedMany } from './embeddings';
 
 /**
@@ -23,15 +29,52 @@ function embedText(chunk: KnowledgeChunk): string {
     : chunk.content;
 }
 
+/** Turn a GitHub-sourced project into a retrievable knowledge chunk. */
+function projectToChunk(p: DisplayProject): KnowledgeChunk {
+  const content = [
+    `${p.name} (project).`,
+    p.description,
+    p.tech.length ? `Tech: ${p.tech.join(', ')}.` : '',
+    p.github ? `GitHub: ${p.github}.` : '',
+    p.demo ? `Demo: ${p.demo}.` : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return {
+    id: p.id,
+    category: 'project',
+    content,
+    tags: [p.categoryKey, ...p.tech.map((tp) => tp.toLowerCase())],
+  };
+}
+
+/**
+ * Project knowledge is pulled live from GitHub (the same repos shown in the
+ * Projects section), replacing the old hard-coded list so the chatbot stays in
+ * sync with the site. A fetch failure degrades to no project chunks rather than
+ * breaking the whole index (buildIndex runs alongside model load in useAI).
+ */
+async function loadProjectChunks(): Promise<KnowledgeChunk[]> {
+  try {
+    const projects = await fetchGithubProjects();
+    return projects.map(projectToChunk);
+  } catch {
+    return [];
+  }
+}
+
 /** Build (and cache) embeddings for every knowledge chunk. */
 export async function buildIndex(): Promise<KnowledgeChunk[]> {
   if (indexedChunks) return indexedChunks;
   if (indexPromise) return indexPromise;
 
   indexPromise = (async () => {
-    const texts = ALL_KNOWLEDGE_CHUNKS.map(embedText);
+    const projectChunks = await loadProjectChunks();
+    const allChunks = [...ALL_KNOWLEDGE_CHUNKS, ...projectChunks];
+    const texts = allChunks.map(embedText);
     const vectors = await embedMany(texts);
-    indexedChunks = ALL_KNOWLEDGE_CHUNKS.map((chunk, i) => ({
+    indexedChunks = allChunks.map((chunk, i) => ({
       ...chunk,
       embedding: vectors[i],
     }));

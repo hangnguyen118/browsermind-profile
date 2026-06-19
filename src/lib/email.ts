@@ -24,8 +24,10 @@ export interface ContactPayload {
 }
 
 /**
- * Send a contact message. Template variables match SPEC §7.1:
- * {{from_name}}, {{from_email}}, {{company}}, {{message}}.
+ * Send a contact message. Variable names must match the placeholders used in
+ * the EmailJS template ("Contact Us"): {{name}}, {{email}}, {{title}},
+ * {{time}}, {{message}} — plus {{company}} (add this line to the template body).
+ * Mismatched names render blank, which is why only {{message}} used to arrive.
  */
 export async function sendContactEmail(payload: ContactPayload): Promise<void> {
   if (!isEmailConfigured()) {
@@ -36,10 +38,15 @@ export async function sendContactEmail(payload: ContactPayload): Promise<void> {
     SERVICE_ID!,
     TEMPLATE_ID!,
     {
-      from_name: payload.name,
-      from_email: payload.email,
+      name: payload.name,
+      email: payload.email,
       company: payload.company ?? '',
       message: payload.message,
+      // {{title}} fills the subject ("Contact Us: {{title}}"); {{time}} the timestamp.
+      title: payload.company
+        ? `${payload.name} (${payload.company})`
+        : payload.name,
+      time: new Date().toLocaleString(),
       reply_to: payload.email,
     },
     { publicKey: PUBLIC_KEY! },

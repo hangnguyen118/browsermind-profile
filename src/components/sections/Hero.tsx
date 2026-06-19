@@ -12,6 +12,7 @@ import { SocialLinks } from '../ui/SocialLinks';
 import { PROFILE } from '../../data/profile';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 import { openChat } from '../../lib/chatBus';
+import { openSidePanel } from '../../lib/sidePanelBus';
 
 // three.js + react-three-fiber are heavy, so the WebGL backdrop loads as its
 // own async chunk — the hero text/avatar paint immediately, the 3D fades in.
@@ -64,6 +65,16 @@ export function Hero() {
     mvy.set(0);
     pointer.current.x = 0;
     pointer.current.y = 0;
+  }
+
+  // Open the CV PDF in the left side panel when the avatar is clicked.
+  function openCv() {
+    openSidePanel({
+      kind: 'pdf',
+      title: t('hero.name'),
+      subtitle: 'CV',
+      url: PROFILE.cvUrl,
+    });
   }
 
   return (
@@ -172,6 +183,16 @@ export function Hero() {
 
           <motion.div variants={fadeUp} className="shrink-0">
             <motion.div
+              role="button"
+              tabIndex={0}
+              onClick={openCv}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openCv();
+                }
+              }}
+              aria-label={t('common:actions.downloadCv')}
               style={{
                 x: avatarX,
                 y: avatarY,
@@ -179,7 +200,7 @@ export function Hero() {
                 rotateY: avatarRotateY,
                 transformPerspective: 800,
               }}
-              className="relative"
+              className="relative cursor-pointer rounded-full focus:outline-none focus-visible:ring-4 focus-visible:ring-accent-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
             >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-accent-300 to-accent-500 blur-md" />
               <div className="h-44 w-44 overflow-hidden rounded-full border-4 border-white shadow-xl sm:h-56 sm:w-56 dark:border-gray-800">

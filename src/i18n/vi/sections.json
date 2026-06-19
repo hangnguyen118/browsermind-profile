@@ -51,22 +51,9 @@
       "web": "Web",
       "game": "Game"
     },
-    "proj1": {
-      "name": "Esme Chatbot",
-      "desc": "Chatbot AI tương tác bằng giọng nói và phản hồi thời gian thực — OpenAI tạo câu trả lời và ElevenLabs text-to-speech cho giọng nói tự nhiên."
-    },
-    "proj2": {
-      "name": "Portfolio Website",
-      "desc": "Portfolio cá nhân full-stack: giao diện Angular + Angular Material, backend .NET trên Azure SQL, triển khai lên Vercel và Azure."
-    },
-    "proj3": {
-      "name": "Flip Card Game",
-      "desc": "Trò chơi lật thẻ ghi nhớ với logic ghép cặp, hiệu ứng mượt, đồng hồ đếm giờ và theo dõi điểm."
-    },
-    "proj4": {
-      "name": "Fruit Catcher Mini Game",
-      "desc": "Game bắt trái cây 2D với điều khiển bàn phím, phát hiện va chạm, sinh vật thể thời gian thực và lưu điểm bằng local storage, làm bằng Cocos Creator."
-    }
+    "loading": "Đang tải dự án từ GitHub…",
+    "empty": "Chưa có dự án nào. Hãy gắn topic \"portfolio\" cho repo trên GitHub.",
+    "error": "Không tải được dự án từ GitHub."
   },
   "education": {
     "heading": "Học vấn",
