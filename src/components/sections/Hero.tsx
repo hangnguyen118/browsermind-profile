@@ -1,29 +1,103 @@
-import { useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import { Download, MessageSquareText, Send } from 'lucide-react';
 import { SocialLinks } from '../ui/SocialLinks';
 import { PROFILE } from '../../data/profile';
 import { fadeUp, staggerContainer } from '../../lib/motion';
 import { openChat } from '../../lib/chatBus';
 
+// three.js + react-three-fiber are heavy, so the WebGL backdrop loads as its
+// own async chunk — the hero text/avatar paint immediately, the 3D fades in.
+const HeroBackground3D = lazy(() => import('./HeroBackground3D'));
+
+const POINTER_SPRING = { stiffness: 120, damping: 20, mass: 0.5 } as const;
+
 export function Hero() {
   const { t } = useTranslation(['sections', 'common']);
   const [avatarError, setAvatarError] = useState(false);
+  const [show3d, setShow3d] = useState(false);
+  const reduceMotion = useReducedMotion();
+
+  // Shared cursor position (normalised -0.5..0.5) read by the 3D scene.
+  const pointer = useRef({ x: 0, y: 0 });
+
+  const mvx = useMotionValue(0);
+  const mvy = useMotionValue(0);
+  const sx = useSpring(mvx, POINTER_SPRING);
+  const sy = useSpring(mvy, POINTER_SPRING);
+
+  // Avatar floats and tilts toward the cursor; blobs drift the other way for depth.
+  const avatarX = useTransform(sx, [-0.5, 0.5], [-16, 16]);
+  const avatarY = useTransform(sy, [-0.5, 0.5], [-16, 16]);
+  const avatarRotateY = useTransform(sx, [-0.5, 0.5], [-12, 12]);
+  const avatarRotateX = useTransform(sy, [-0.5, 0.5], [12, -12]);
+  const blobAX = useTransform(sx, [-0.5, 0.5], [28, -28]);
+  const blobAY = useTransform(sy, [-0.5, 0.5], [28, -28]);
+  const blobBX = useTransform(sx, [-0.5, 0.5], [-20, 20]);
+  const blobBY = useTransform(sy, [-0.5, 0.5], [-20, 20]);
+
+  // Defer mounting the 3D chunk until after the first paint.
+  useEffect(() => {
+    setShow3d(true);
+  }, []);
+
+  function handlePointerMove(e: React.PointerEvent<HTMLElement>) {
+    if (e.pointerType === 'touch') return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mvx.set(x);
+    mvy.set(y);
+    pointer.current.x = x;
+    pointer.current.y = y;
+  }
+
+  function handlePointerLeave() {
+    mvx.set(0);
+    mvy.set(0);
+    pointer.current.x = 0;
+    pointer.current.y = 0;
+  }
 
   return (
     <section
       id="top"
+      onPointerMove={reduceMotion ? undefined : handlePointerMove}
+      onPointerLeave={reduceMotion ? undefined : handlePointerLeave}
       className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24"
     >
+      {/* WebGL particle backdrop (lazy, behind everything, disabled for reduced motion). */}
+      {show3d && !reduceMotion && (
+        <motion.div
+          aria-hidden
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="pointer-events-none absolute inset-0 -z-10"
+        >
+          <Suspense fallback={null}>
+            <HeroBackground3D pointer={pointer} />
+          </Suspense>
+        </motion.div>
+      )}
+
       {/* Decorative accent blobs */}
-      <div
+      <motion.div
         aria-hidden
-        className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent-200/50 blur-3xl dark:bg-accent-900/30"
+        style={{ x: blobAX, y: blobAY }}
+        className="pointer-events-none absolute -top-24 -right-24 -z-10 h-72 w-72 rounded-full bg-accent-200/50 blur-3xl dark:bg-accent-900/30"
       />
-      <div
+      <motion.div
         aria-hidden
-        className="pointer-events-none absolute top-40 -left-24 h-72 w-72 rounded-full bg-accent-100/60 blur-3xl dark:bg-accent-800/20"
+        style={{ x: blobBX, y: blobBY }}
+        className="pointer-events-none absolute top-40 -left-24 -z-10 h-72 w-72 rounded-full bg-accent-100/60 blur-3xl dark:bg-accent-800/20"
       />
 
       <div className="container-page">
@@ -97,7 +171,16 @@ export function Hero() {
           </div>
 
           <motion.div variants={fadeUp} className="shrink-0">
-            <div className="relative">
+            <motion.div
+              style={{
+                x: avatarX,
+                y: avatarY,
+                rotateX: avatarRotateX,
+                rotateY: avatarRotateY,
+                transformPerspective: 800,
+              }}
+              className="relative"
+            >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-accent-300 to-accent-500 blur-md" />
               <div className="h-44 w-44 overflow-hidden rounded-full border-4 border-white shadow-xl sm:h-56 sm:w-56 dark:border-gray-800">
                 {!avatarError ? (
@@ -113,7 +196,7 @@ export function Hero() {
                   </div>
                 )}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

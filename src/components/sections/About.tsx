@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Section } from '../ui/Section';
+import { TiltCard } from '../ui/TiltCard';
 import { fadeUp } from '../../lib/motion';
 import { CERTIFICATES, PROJECTS, SKILL_GROUPS } from '../../data/profile';
 
@@ -36,8 +37,9 @@ export function About() {
           className="grid grid-cols-2 gap-4 md:col-span-2"
         >
           {highlights.map((h) => (
-            <div
+            <TiltCard
               key={h.label}
+              intensity={10}
               className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm dark:border-gray-800 dark:bg-gray-900"
             >
               <div className="text-3xl font-extrabold accent-gradient-text">
@@ -46,7 +48,7 @@ export function About() {
               <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                 {h.label}
               </div>
-            </div>
+            </TiltCard>
           ))}
         </motion.div>
       </div>

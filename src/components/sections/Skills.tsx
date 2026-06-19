@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 import { Code2, Server, Cog, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Section } from '../ui/Section';
+import { TiltCard } from '../ui/TiltCard';
 import { SKILL_GROUPS } from '../../data/profile';
 import type { SkillLevel } from '../../types';
 import { fadeUp } from '../../lib/motion';
@@ -54,9 +54,10 @@ export function Skills() {
         {SKILL_GROUPS.map((group) => {
           const Icon = GROUP_ICONS[group.categoryKey] ?? Code2;
           return (
-            <motion.div
+            <TiltCard
               key={group.categoryKey}
               variants={fadeUp}
+              intensity={6}
               className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
             >
               <div className="mb-4 flex items-center gap-3">
@@ -85,7 +86,7 @@ export function Skills() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </TiltCard>
           );
         })}
       </div>

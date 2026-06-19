@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Github, ExternalLink, FolderGit2 } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { TechTag } from '../ui/TechTag';
+import { TiltCard } from '../ui/TiltCard';
 import { PROJECTS } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
 import { cn } from '../../lib/cn';
@@ -49,51 +50,58 @@ export function Projects() {
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((project) => (
-          <motion.article
+          <motion.div
             key={project.id}
-            variants={fadeUp}
             layout
-            className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="h-full"
           >
-            <div className="flex h-32 items-center justify-center bg-gradient-to-br from-accent-200 to-accent-400 dark:from-accent-900/50 dark:to-accent-700/40">
-              <FolderGit2 className="text-white/90" size={40} />
-            </div>
-            <div className="flex flex-1 flex-col p-5">
-              <h3 className="text-lg font-bold">{t(`projects.${project.nameKey}`)}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                {t(`projects.${project.descKey}`)}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <TechTag key={tech} label={tech} />
-                ))}
+            <TiltCard
+              intensity={6}
+              className="group flex h-full flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+            >
+              <div className="flex h-32 items-center justify-center bg-gradient-to-br from-accent-200 to-accent-400 dark:from-accent-900/50 dark:to-accent-700/40">
+                <FolderGit2 className="text-white/90" size={40} />
               </div>
-              <div className="mt-5 flex gap-3">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
-                  >
-                    <Github size={16} />
-                    {t('actions.code', { ns: 'common' })}
-                  </a>
-                )}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
-                  >
-                    <ExternalLink size={16} />
-                    {t('actions.demo', { ns: 'common' })}
-                  </a>
-                )}
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="text-lg font-bold">{t(`projects.${project.nameKey}`)}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                  {t(`projects.${project.descKey}`)}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <TechTag key={tech} label={tech} />
+                  ))}
+                </div>
+                <div className="mt-5 flex gap-3">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
+                    >
+                      <Github size={16} />
+                      {t('actions.code', { ns: 'common' })}
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
+                    >
+                      <ExternalLink size={16} />
+                      {t('actions.demo', { ns: 'common' })}
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          </motion.article>
+            </TiltCard>
+          </motion.div>
         ))}
       </div>
     </Section>

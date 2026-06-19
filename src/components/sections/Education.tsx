@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 import { Section } from '../ui/Section';
+import { TiltCard } from '../ui/TiltCard';
 import { EDUCATION } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
 
@@ -16,9 +16,10 @@ export function Education() {
     >
       <div className="space-y-5">
         {EDUCATION.map((item) => (
-          <motion.div
+          <TiltCard
             key={item.id}
             variants={fadeUp}
+            intensity={5}
             className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900"
           >
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-accent-100 text-accent-700 dark:bg-accent-900/40 dark:text-accent-200">
@@ -42,7 +43,7 @@ export function Education() {
                 </p>
               )}
             </div>
-          </motion.div>
+          </TiltCard>
         ))}
       </div>
     </Section>

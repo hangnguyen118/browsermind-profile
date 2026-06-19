@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 import { Award, ExternalLink } from 'lucide-react';
 import { Section } from '../ui/Section';
+import { TiltCard } from '../ui/TiltCard';
 import { CERTIFICATES } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
 
@@ -17,9 +17,10 @@ export function Certificates() {
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {CERTIFICATES.map((cert) => (
-          <motion.div
+          <TiltCard
             key={cert.id}
             variants={fadeUp}
+            intensity={6}
             className="flex flex-col rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
           >
             <div className="mb-3 flex items-center gap-3">
@@ -45,7 +46,7 @@ export function Certificates() {
                 {t('actions.verify', { ns: 'common' })}
               </a>
             )}
-          </motion.div>
+          </TiltCard>
         ))}
       </div>
     </Section>

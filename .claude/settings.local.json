@@ -11,7 +11,11 @@
       "PowerShell(npm run lint 2>&1)",
       "Bash(mv \"cv/CV_NguyenThiDieuHang.pdf\" \"public/CV_NguyenThiDieuHang.pdf\")",
       "Bash(ls -la cv)",
-      "Bash(rmdir cv *)"
+      "Bash(rmdir cv *)",
+      "PowerShell(npm install three @react-three/fiber)",
+      "PowerShell(npm install -D @types/three)",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell($env:BROWSER='none'; npm run dev)"
     ]
   }
 }

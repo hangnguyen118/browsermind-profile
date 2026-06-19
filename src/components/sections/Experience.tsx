@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { TechTag } from '../ui/TechTag';
+import { TiltCard } from '../ui/TiltCard';
 import { EXPERIENCE } from '../../data/profile';
 import { fadeUp } from '../../lib/motion';
 
@@ -31,7 +32,10 @@ export function Experience() {
                 <Briefcase size={18} />
               </span>
 
-              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+              <TiltCard
+                intensity={5}
+                className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+              >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <h3 className="text-lg font-bold">
                     {t(`experience.${item.roleKey}`)}
@@ -51,7 +55,7 @@ export function Experience() {
                     <TechTag key={tech} label={tech} />
                   ))}
                 </div>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
