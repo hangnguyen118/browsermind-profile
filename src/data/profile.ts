@@ -41,13 +41,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const EXPERIENCE: ExperienceItem[] = [
   {
     id: 'exp3',
-    company: 'PlusLearning',
+    company: 'ChipNova',
     roleKey: 'exp3.role',
-    period: '05/2025 — 03/2026',
+    period: '08/2025 — 03/2026',
     descKey: 'exp3.desc',
-    tech: ['UX/UI Design', 'React Native', 'React', 'Figma'],
+    tech: ['UX/UI Design', 'React Native', 'React', 'Playwright', 'Azure Native'],
     icon: 'rocket',
-    markdownDoc: 'pluslearning',
+    markdownDoc: 'chipnova',
   },
   {
     id: 'exp2',
