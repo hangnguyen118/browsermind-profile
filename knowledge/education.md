@@ -2,6 +2,5 @@
 
 > Mirror into `src/data/education.ts`.
 
-## B.Sc. in Computer Science — University of Technology (2017 – 2021)
-Graduated with a focus on software engineering and web technologies.
-GPA: 3.5 / 4.0.
+## Engineer's Degree in Information Technology — Ho Chi Minh City University of Technology (HUTECH)
+Graduated 20/01/2025. GPA: 3.35 / 4.0. Degree classification: Very Good.

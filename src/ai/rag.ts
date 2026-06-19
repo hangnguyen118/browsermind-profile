@@ -10,7 +10,7 @@ import { cosineSimilarity, embed, embedMany } from './embeddings';
  */
 
 const TOP_K = 4;
-const PROFILE_NAME = 'Hoang Dung';
+const PROFILE_NAME = 'Nguyen Thi Dieu Hang';
 
 // In-memory cache of chunk embeddings (built once per session).
 let indexedChunks: KnowledgeChunk[] | null = null;

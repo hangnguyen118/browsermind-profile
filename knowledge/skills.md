@@ -3,17 +3,17 @@
 > Mirror into `src/data/skills.ts`. Levels: Beginner / Intermediate / Advanced / Expert.
 
 ## Frontend
-React (Expert), TypeScript (Expert), Tailwind CSS (Advanced), Next.js (Advanced),
-HTML/CSS (Expert), React Native (Intermediate).
+React.js (Advanced), TypeScript (Advanced), JavaScript (Advanced),
+HTML/CSS (Advanced), Next.js (Intermediate), Angular (Intermediate).
 
 ## Backend
-Node.js (Advanced), REST APIs (Advanced), PostgreSQL (Intermediate),
-Python (Intermediate).
+.NET (Intermediate), Node.js (Intermediate), SQL (Intermediate),
+Java (Beginner), PHP (Beginner).
 
-## DevOps
-Docker (Intermediate), GitHub Actions / CI/CD (Advanced), Linux (Intermediate),
-Vercel / Netlify (Advanced).
+## DevOps & Tools
+Git & GitHub (Advanced), Vercel (Intermediate), Azure DevOps (Intermediate),
+Figma (Intermediate), Adobe XD (Beginner).
 
 ## Soft Skills
-Communication (Advanced), Mentoring (Advanced), Problem solving (Expert),
-Teamwork (Advanced).
+Problem solving (Advanced), Fast learner (Advanced), Teamwork (Advanced),
+Communication (Intermediate).

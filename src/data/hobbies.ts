@@ -5,9 +5,9 @@ export const hobbiesChunks: KnowledgeChunk[] = [
     id: 'hob-001',
     category: 'hobby',
     content:
-      'Hobbies: open-source contributions and side projects, reading about AI, system design and product, running and hiking, and coffee brewing.',
+      'Interests: building small web games and interactive UIs, experimenting with AI chatbots and voice interfaces (OpenAI, ElevenLabs), and learning new front-end and back-end frameworks through side projects.',
     contentVi:
-      'Sở thích: đóng góp mã nguồn mở và làm side project, đọc về AI, thiết kế hệ thống và sản phẩm, chạy bộ và leo núi, pha cà phê.',
-    tags: ['hobby', 'open source', 'reading', 'running', 'coffee'],
+      'Sở thích: xây dựng các web game nhỏ và giao diện tương tác, thử nghiệm chatbot AI và giao diện giọng nói (OpenAI, ElevenLabs), và học các framework front-end, back-end mới qua các dự án cá nhân.',
+    tags: ['hobby', 'interests', 'games', 'ai', 'side projects', 'learning'],
   },
 ];

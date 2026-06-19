@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Section } from '../ui/Section';
 import { fadeUp } from '../../lib/motion';
-import { EXPERIENCE, PROJECTS, SKILL_GROUPS } from '../../data/profile';
+import { CERTIFICATES, PROJECTS, SKILL_GROUPS } from '../../data/profile';
 
 export function About() {
   const { t } = useTranslation('sections');
@@ -12,12 +12,12 @@ export function About() {
   ).size;
 
   const highlights = [
-    { value: '4+', label: t('about.highlights.years') },
-    { value: `${PROJECTS.length}+`, label: t('about.highlights.projects') },
+    { value: '3.35', label: t('about.highlights.gpa') },
+    { value: `${PROJECTS.length}`, label: t('about.highlights.projects') },
     { value: `${techCount}+`, label: t('about.highlights.technologies') },
     {
-      value: `${EXPERIENCE.length}`,
-      label: t('experience.heading'),
+      value: `${CERTIFICATES.length}`,
+      label: t('about.highlights.certificates'),
     },
   ];
 

@@ -14,19 +14,24 @@ import type {
  */
 
 export const PROFILE = {
-  email: 'hoangdung.proelsalo@gmail.com',
+  email: 'ntdieuhang192@gmail.com',
+  phone: '0327 840 518',
   /** CV file placed at public/cv.pdf */
   cvUrl: './cv.pdf',
   /** Avatar placed at public/avatar.jpg (falls back to initials if missing). */
   avatarUrl: './avatar.jpg',
-  initials: 'HD',
+  initials: 'DH',
 } as const;
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/your-handle', icon: 'github' },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/hangnguyen118',
+    icon: 'github',
+  },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/your-handle',
+    href: 'https://www.linkedin.com/in/hangnguyen118',
     icon: 'linkedin',
   },
   { label: 'Email', href: `mailto:${PROFILE.email}`, icon: 'mail' },
@@ -35,27 +40,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const EXPERIENCE: ExperienceItem[] = [
   {
     id: 'exp1',
-    company: 'ABC Corp',
+    company: 'Viet Japan Partner',
     roleKey: 'exp1.role',
-    period: '01/2024 — Present',
+    period: '05/2024 — 06/2024',
     descKey: 'exp1.desc',
-    tech: ['React', 'TypeScript', 'Vite', 'Node.js'],
-  },
-  {
-    id: 'exp2',
-    company: 'Startup XYZ',
-    roleKey: 'exp2.role',
-    period: '06/2022 — 12/2023',
-    descKey: 'exp2.desc',
-    tech: ['React Native', 'Node.js', 'PostgreSQL', 'GitHub Actions'],
-  },
-  {
-    id: 'exp3',
-    company: 'Studio QWE',
-    roleKey: 'exp3.role',
-    period: '07/2021 — 05/2022',
-    descKey: 'exp3.desc',
-    tech: ['JavaScript', 'HTML', 'CSS', 'PHP'],
+    tech: ['Web Development', 'REST APIs', 'Teamwork'],
   },
 ];
 
@@ -63,39 +52,41 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     categoryKey: 'frontend',
     skills: [
-      { name: 'React', level: 'Expert' },
-      { name: 'TypeScript', level: 'Expert' },
-      { name: 'HTML / CSS', level: 'Expert' },
-      { name: 'Tailwind CSS', level: 'Advanced' },
-      { name: 'Next.js', level: 'Advanced' },
-      { name: 'React Native', level: 'Intermediate' },
+      { name: 'React.js', level: 'Advanced' },
+      { name: 'TypeScript', level: 'Advanced' },
+      { name: 'JavaScript', level: 'Advanced' },
+      { name: 'HTML / CSS', level: 'Advanced' },
+      { name: 'Next.js', level: 'Intermediate' },
+      { name: 'Angular', level: 'Intermediate' },
     ],
   },
   {
     categoryKey: 'backend',
     skills: [
-      { name: 'Node.js', level: 'Advanced' },
-      { name: 'REST APIs', level: 'Advanced' },
-      { name: 'PostgreSQL', level: 'Intermediate' },
-      { name: 'Python', level: 'Intermediate' },
+      { name: '.NET', level: 'Intermediate' },
+      { name: 'Node.js', level: 'Intermediate' },
+      { name: 'SQL', level: 'Intermediate' },
+      { name: 'Java', level: 'Beginner' },
+      { name: 'PHP', level: 'Beginner' },
     ],
   },
   {
     categoryKey: 'devops',
     skills: [
-      { name: 'GitHub Actions / CI/CD', level: 'Advanced' },
-      { name: 'Vercel / Netlify', level: 'Advanced' },
-      { name: 'Docker', level: 'Intermediate' },
-      { name: 'Linux', level: 'Intermediate' },
+      { name: 'Git & GitHub', level: 'Advanced' },
+      { name: 'Vercel', level: 'Intermediate' },
+      { name: 'Azure DevOps', level: 'Intermediate' },
+      { name: 'Figma', level: 'Intermediate' },
+      { name: 'Adobe XD', level: 'Beginner' },
     ],
   },
   {
     categoryKey: 'soft',
     skills: [
-      { name: 'Problem solving', level: 'Expert' },
-      { name: 'Communication', level: 'Advanced' },
-      { name: 'Mentoring', level: 'Advanced' },
+      { name: 'Problem solving', level: 'Advanced' },
+      { name: 'Fast learner', level: 'Advanced' },
       { name: 'Teamwork', level: 'Advanced' },
+      { name: 'Communication', level: 'Intermediate' },
     ],
   },
 ];
@@ -105,58 +96,61 @@ export const PROJECTS: ProjectItem[] = [
     id: 'proj1',
     nameKey: 'proj1.name',
     descKey: 'proj1.desc',
-    tech: ['React', 'TypeScript', 'Transformers.js', 'Tailwind'],
-    github: 'https://github.com/your-handle/profile-app',
+    tech: ['React', 'Node.js', 'OpenAI API', 'ElevenLabs'],
+    github: 'https://github.com/hangnguyen118/Esme-Chatbot',
     categoryKey: 'ai',
   },
   {
     id: 'proj2',
     nameKey: 'proj2.name',
     descKey: 'proj2.desc',
-    tech: ['React', 'TypeScript', 'WebSocket', 'D3'],
-    github: 'https://github.com/your-handle/analytics-dashboard',
-    demo: 'https://example.com/demo',
+    tech: ['Angular', 'Angular Material', '.NET', 'SQL', 'Azure'],
+    github: 'https://github.com/hangnguyen118/profile-me',
+    demo: 'https://profile-me-website.vercel.app/home',
     categoryKey: 'web',
   },
   {
     id: 'proj3',
     nameKey: 'proj3.name',
     descKey: 'proj3.desc',
-    tech: ['React Native', 'Node.js', 'Stripe', 'PostgreSQL'],
-    github: 'https://github.com/your-handle/ecommerce-app',
-    categoryKey: 'mobile',
+    tech: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    github: 'https://github.com/hangnguyen118/flip-card-game',
+    demo: 'https://flip-card-game-seven.vercel.app/',
+    categoryKey: 'game',
+  },
+  {
+    id: 'proj4',
+    nameKey: 'proj4.name',
+    descKey: 'proj4.desc',
+    tech: ['Cocos Creator', 'JavaScript', 'TypeScript'],
+    github: 'https://github.com/hangnguyen118/fruit-catcher-cc2d',
+    demo: 'https://fruit-catcher-cc2d.vercel.app/',
+    categoryKey: 'game',
   },
 ];
 
 export const EDUCATION: EducationItem[] = [
   {
     id: 'edu1',
-    school: 'University of Technology',
+    school: 'Ho Chi Minh City University of Technology (HUTECH)',
     degreeKey: 'edu1.degree',
-    period: '2017 — 2021',
-    gpa: '3.5 / 4.0',
+    period: 'Graduated 01/2025',
+    gpa: '3.35 / 4.0 (Very Good)',
   },
 ];
 
 export const CERTIFICATES: CertificateItem[] = [
   {
     id: 'cert1',
-    name: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    year: '2023',
-    verifyUrl: 'https://www.credly.com/',
+    name: 'Microsoft Azure Fundamentals (AZ-900)',
+    issuer: 'Microsoft',
+    year: '',
+    verifyUrl: 'https://learn.microsoft.com/credentials/certifications/azure-fundamentals/',
   },
   {
     id: 'cert2',
-    name: 'Meta Front-End Developer',
-    issuer: 'Coursera / Meta',
-    year: '2022',
-    verifyUrl: 'https://www.coursera.org/',
-  },
-  {
-    id: 'cert3',
-    name: 'TOEIC 900',
-    issuer: 'ETS',
-    year: '2022',
+    name: 'English B1 Certification',
+    issuer: 'CEFR — Intermediate',
+    year: '',
   },
 ];

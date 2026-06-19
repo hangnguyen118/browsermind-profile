@@ -5,7 +5,7 @@
   "closeAria": "Close chat",
   "inputPlaceholder": "Ask me anything…",
   "sendAria": "Send message",
-  "welcome": "Hi! I'm an AI assistant that can answer questions about Hoang Dung — experience, skills, projects, and more. What would you like to know?",
+  "welcome": "Hi! I'm an AI assistant that can answer questions about Nguyen Thi Dieu Hang — experience, skills, projects, and more. What would you like to know?",
   "suggestions": {
     "label": "Try asking",
     "items": [
@@ -29,12 +29,12 @@
   "typing": "Thinking…",
   "fallback": "I don't have that information. Please contact directly via email: {{email}}.",
   "contactFlow": {
-    "offer": "Would you like to send a message to Hoang Dung?",
+    "offer": "Would you like to send a message to Dieu Hang?",
     "askName": "Great! What's your name?",
     "askEmail": "Thanks {{name}}! What's your email address?",
     "askMessage": "Got it. What message would you like to send?",
     "sending": "Sending your message…",
-    "success": "Sent successfully! Hoang Dung will reply within 24h.",
+    "success": "Sent successfully! Dieu Hang will reply within 24h.",
     "error": "Sorry, sending failed. Please email directly: {{email}}.",
     "cancelled": "No problem — let me know if you change your mind.",
     "invalidEmail": "That doesn't look like a valid email. Could you re-enter it?",

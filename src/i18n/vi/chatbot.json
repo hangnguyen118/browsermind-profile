@@ -5,7 +5,7 @@
   "closeAria": "Đóng chat",
   "inputPlaceholder": "Hỏi tôi bất cứ điều gì…",
   "sendAria": "Gửi tin nhắn",
-  "welcome": "Xin chào! Tôi là trợ lý AI có thể trả lời các câu hỏi về Hoàng Dũng — kinh nghiệm, kỹ năng, dự án và hơn thế. Bạn muốn biết điều gì?",
+  "welcome": "Xin chào! Tôi là trợ lý AI có thể trả lời các câu hỏi về Nguyễn Thị Diệu Hằng — kinh nghiệm, kỹ năng, dự án và hơn thế. Bạn muốn biết điều gì?",
   "suggestions": {
     "label": "Thử hỏi",
     "items": [
@@ -29,12 +29,12 @@
   "typing": "Đang suy nghĩ…",
   "fallback": "Tôi không có thông tin đó. Vui lòng liên hệ trực tiếp qua email: {{email}}.",
   "contactFlow": {
-    "offer": "Bạn có muốn gửi tin nhắn đến Hoàng Dũng không?",
+    "offer": "Bạn có muốn gửi tin nhắn đến Diệu Hằng không?",
     "askName": "Tuyệt! Tên của bạn là gì?",
     "askEmail": "Cảm ơn {{name}}! Email của bạn là gì?",
     "askMessage": "Đã rõ. Bạn muốn gửi tin nhắn gì?",
     "sending": "Đang gửi tin nhắn của bạn…",
-    "success": "Đã gửi thành công! Hoàng Dũng sẽ phản hồi trong 24 giờ.",
+    "success": "Đã gửi thành công! Diệu Hằng sẽ phản hồi trong 24 giờ.",
     "error": "Xin lỗi, gửi thất bại. Vui lòng email trực tiếp: {{email}}.",
     "cancelled": "Không sao — cho tôi biết nếu bạn đổi ý nhé.",
     "invalidEmail": "Email này có vẻ không hợp lệ. Bạn nhập lại giúp tôi nhé?",

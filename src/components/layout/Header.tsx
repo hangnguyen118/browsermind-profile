@@ -27,7 +27,7 @@ export function Header() {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-300 font-mono text-sm text-[#0b2434]">
             &lt;/&gt;
           </span>
-          <span className="accent-gradient-text">HD</span>
+          <span className="accent-gradient-text">DH</span>
         </a>
 
         <Navigation activeId={activeId} />

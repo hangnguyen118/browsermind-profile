@@ -5,9 +5,9 @@ export const educationChunks: KnowledgeChunk[] = [
     id: 'edu-001',
     category: 'education',
     content:
-      'B.Sc. in Computer Science, University of Technology (2017–2021). Focused on software engineering and web technologies. GPA: 3.5/4.0.',
+      "Engineer's Degree in Information Technology, Ho Chi Minh City University of Technology (HUTECH). Graduated 20/01/2025. GPA: 3.35/4.0. Degree classification: Very Good.",
     contentVi:
-      'Cử nhân Khoa học Máy tính, Đại học Bách Khoa (2017–2021). Chuyên sâu về kỹ thuật phần mềm và công nghệ web. GPA: 3.5/4.0.',
-    tags: ['education', 'degree', 'computer science', 'university', 'gpa'],
+      'Bằng Kỹ sư ngành Công nghệ Thông tin, Trường Đại học Công nghệ TP. Hồ Chí Minh (HUTECH). Tốt nghiệp ngày 20/01/2025. GPA: 3.35/4.0. Xếp loại: Giỏi.',
+    tags: ['education', 'degree', 'information technology', 'hutech', 'gpa', '2025'],
   },
 ];

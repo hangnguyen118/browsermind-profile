@@ -1,8 +1,8 @@
-# Hobbies
+# Interests
 
-> Mirror into `src/data/hobbies.ts`.
+> Mirror into `src/data/hobbies.ts`. (Not on the CV — derived from personal
+> projects; keep honest and high level.)
 
-- Open-source contributions and side projects.
-- Reading about AI, system design, and product.
-- Running and hiking.
-- Coffee brewing.
+- Building small web games and interactive UIs (flip-card, fruit-catcher).
+- Experimenting with AI chatbots and voice interfaces (OpenAI, ElevenLabs).
+- Learning new front-end and back-end frameworks through side projects.

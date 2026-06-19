@@ -1,17 +1,19 @@
 {
   "hero": {
     "greeting": "Hi, I'm",
-    "name": "Hoang Dung",
-    "title": "Software Engineer",
-    "tagline": "I build reliable, fast web applications end to end — and this site runs an AI that can tell you all about me, right in your browser."
+    "name": "Nguyen Thi Dieu Hang",
+    "title": "Full Stack Developer",
+    "tagline": "A Software Engineering graduate building web apps end to end — and this site runs an AI right in your browser that can tell you all about me."
   },
   "about": {
     "heading": "About",
-    "body": "I'm a Software Engineer with 4+ years of experience building web applications across the stack. I care about clean architecture, performance, and developer experience, and I enjoy turning fuzzy product ideas into polished, reliable software.",
+    "body": "I'm a Software Engineering graduate from HUTECH with hands-on experience across front-end and back-end web development, including an internship at Viet Japan Partner. I'm Microsoft Azure (AZ-900) certified, a fast learner, and eager to grow as a Full Stack Developer building scalable, user-friendly applications.",
     "highlights": {
       "years": "Years experience",
-      "projects": "Projects shipped",
-      "technologies": "Technologies"
+      "projects": "Projects built",
+      "technologies": "Technologies",
+      "gpa": "GPA",
+      "certificates": "Certificates"
     }
   },
   "experience": {
@@ -19,16 +21,8 @@
     "subheading": "Where I've worked",
     "techLabel": "Tech",
     "exp1": {
-      "role": "Senior Software Engineer",
-      "desc": "Build and maintain a management dashboard with React and TypeScript. Led a performance initiative that cut initial load time by 40%, and mentored 2 junior engineers."
-    },
-    "exp2": {
-      "role": "Software Engineer",
-      "desc": "Built a cross-platform mobile app with React Native and a REST API backend. Set up CI/CD with GitHub Actions and automated tests, shipping weekly."
-    },
-    "exp3": {
-      "role": "Junior Developer",
-      "desc": "Developed marketing websites and internal tools with responsive, accessible UIs and third-party API integrations."
+      "role": "Web Developer Intern",
+      "desc": "Developed web interfaces and integrated APIs. Collaborated with the team on feature development and testing, and gained hands-on experience with system design and backend integration."
     }
   },
   "skills": {
@@ -37,7 +31,7 @@
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "devops": "DevOps",
+      "devops": "DevOps & Tools",
       "soft": "Soft Skills"
     },
     "levels": {
@@ -54,19 +48,23 @@
     "filters": {
       "ai": "AI",
       "web": "Web",
-      "mobile": "Mobile"
+      "game": "Games"
     },
     "proj1": {
-      "name": "AI Profile Website",
-      "desc": "This very site: a client-side portfolio with an in-browser AI chatbot (Qwen2.5-0.5B) and RAG over my knowledge base — no backend."
+      "name": "Esme Chatbot",
+      "desc": "An AI chatbot with voice interaction and real-time responses — OpenAI for intelligent answers and ElevenLabs text-to-speech for natural voice output."
     },
     "proj2": {
-      "name": "Realtime Analytics Dashboard",
-      "desc": "Live metrics with charts and filters, optimized to render thousands of data points smoothly over WebSocket."
+      "name": "Portfolio Website",
+      "desc": "A full-stack personal portfolio: Angular + Angular Material UI with a .NET backend on Azure SQL, deployed to Vercel and Azure."
     },
     "proj3": {
-      "name": "E-commerce Mobile App",
-      "desc": "Cross-platform shopping app with cart, payments, and push notifications."
+      "name": "Flip Card Game",
+      "desc": "A memory-style flip card game with matching logic, smooth animations, a timer, and score tracking."
+    },
+    "proj4": {
+      "name": "Fruit Catcher Mini Game",
+      "desc": "A 2D catch game with keyboard controls, collision detection, real-time spawning, and local-storage score tracking, built in Cocos Creator."
     }
   },
   "education": {
@@ -74,7 +72,7 @@
     "subheading": "Academic background",
     "gpaLabel": "GPA",
     "edu1": {
-      "degree": "B.Sc. in Computer Science"
+      "degree": "Engineer's Degree, Information Technology"
     }
   },
   "certificates": {

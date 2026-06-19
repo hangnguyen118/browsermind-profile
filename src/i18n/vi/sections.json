@@ -1,17 +1,19 @@
 {
   "hero": {
     "greeting": "Xin chào, tôi là",
-    "name": "Hoàng Dũng",
-    "title": "Software Engineer",
-    "tagline": "Tôi xây dựng các ứng dụng web nhanh và đáng tin cậy từ đầu đến cuối — và trang này có một AI chạy ngay trong trình duyệt để kể cho bạn nghe về tôi."
+    "name": "Nguyễn Thị Diệu Hằng",
+    "title": "Full Stack Developer",
+    "tagline": "Kỹ sư phần mềm mới tốt nghiệp, xây dựng ứng dụng web từ đầu đến cuối — và trang này có một AI chạy ngay trong trình duyệt để kể cho bạn nghe về tôi."
   },
   "about": {
     "heading": "Giới thiệu",
-    "body": "Tôi là Software Engineer với hơn 4 năm kinh nghiệm xây dựng ứng dụng web full-stack. Tôi coi trọng kiến trúc sạch, hiệu năng và trải nghiệm lập trình viên, và thích biến những ý tưởng sản phẩm còn mơ hồ thành phần mềm tinh tế, đáng tin cậy.",
+    "body": "Tôi là kỹ sư ngành Kỹ thuật phần mềm tốt nghiệp HUTECH, có kinh nghiệm thực hành cả front-end lẫn back-end, bao gồm kỳ thực tập tại Viet Japan Partner. Tôi có chứng chỉ Microsoft Azure (AZ-900), học hỏi nhanh và mong muốn phát triển thành Full Stack Developer xây dựng các ứng dụng dễ dùng, có khả năng mở rộng.",
     "highlights": {
       "years": "Năm kinh nghiệm",
       "projects": "Dự án đã làm",
-      "technologies": "Công nghệ"
+      "technologies": "Công nghệ",
+      "gpa": "GPA",
+      "certificates": "Chứng chỉ"
     }
   },
   "experience": {
@@ -19,16 +21,8 @@
     "subheading": "Những nơi tôi từng làm",
     "techLabel": "Công nghệ",
     "exp1": {
-      "role": "Senior Software Engineer",
-      "desc": "Xây dựng và bảo trì hệ thống dashboard quản lý bằng React và TypeScript. Dẫn dắt việc tối ưu hiệu năng giúp giảm 40% thời gian tải, và hướng dẫn 2 bạn junior."
-    },
-    "exp2": {
-      "role": "Software Engineer",
-      "desc": "Xây dựng ứng dụng di động đa nền tảng bằng React Native và backend REST API. Thiết lập CI/CD với GitHub Actions và kiểm thử tự động, release hàng tuần."
-    },
-    "exp3": {
-      "role": "Junior Developer",
-      "desc": "Phát triển website marketing và công cụ nội bộ với giao diện responsive, dễ tiếp cận và tích hợp API bên thứ ba."
+      "role": "Thực tập sinh Lập trình Web",
+      "desc": "Phát triển giao diện web và tích hợp API. Phối hợp cùng nhóm phát triển và kiểm thử tính năng, tích lũy kinh nghiệm thực tế về thiết kế hệ thống và tích hợp backend."
     }
   },
   "skills": {
@@ -37,7 +31,7 @@
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "devops": "DevOps",
+      "devops": "DevOps & Công cụ",
       "soft": "Kỹ năng mềm"
     },
     "levels": {
@@ -54,19 +48,23 @@
     "filters": {
       "ai": "AI",
       "web": "Web",
-      "mobile": "Mobile"
+      "game": "Game"
     },
     "proj1": {
-      "name": "AI Profile Website",
-      "desc": "Chính trang này: portfolio phía client với chatbot AI trong trình duyệt (Qwen2.5-0.5B) và RAG trên dữ liệu của tôi — không cần backend."
+      "name": "Esme Chatbot",
+      "desc": "Chatbot AI tương tác bằng giọng nói và phản hồi thời gian thực — OpenAI tạo câu trả lời và ElevenLabs text-to-speech cho giọng nói tự nhiên."
     },
     "proj2": {
-      "name": "Realtime Analytics Dashboard",
-      "desc": "Số liệu thời gian thực với biểu đồ và bộ lọc, tối ưu để render hàng nghìn điểm dữ liệu mượt mà qua WebSocket."
+      "name": "Portfolio Website",
+      "desc": "Portfolio cá nhân full-stack: giao diện Angular + Angular Material, backend .NET trên Azure SQL, triển khai lên Vercel và Azure."
     },
     "proj3": {
-      "name": "Ứng dụng Thương mại điện tử",
-      "desc": "App mua sắm đa nền tảng với giỏ hàng, thanh toán và push notification."
+      "name": "Flip Card Game",
+      "desc": "Trò chơi lật thẻ ghi nhớ với logic ghép cặp, hiệu ứng mượt, đồng hồ đếm giờ và theo dõi điểm."
+    },
+    "proj4": {
+      "name": "Fruit Catcher Mini Game",
+      "desc": "Game bắt trái cây 2D với điều khiển bàn phím, phát hiện va chạm, sinh vật thể thời gian thực và lưu điểm bằng local storage, làm bằng Cocos Creator."
     }
   },
   "education": {
@@ -74,7 +72,7 @@
     "subheading": "Quá trình học tập",
     "gpaLabel": "GPA",
     "edu1": {
-      "degree": "Cử nhân Khoa học Máy tính"
+      "degree": "Kỹ sư Công nghệ Thông tin"
     }
   },
   "certificates": {

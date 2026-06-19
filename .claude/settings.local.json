@@ -5,7 +5,10 @@
       "Bash(npx tsc *)",
       "Bash(npx vite *)",
       "Bash(node -e \"const d=require\\('./src/i18n/en/sections.json'\\); console.log\\(JSON.stringify\\(d.contact,null,2\\)\\)\")",
-      "Bash(node -e \"const d=require\\('./src/i18n/vi/sections.json'\\); console.log\\(JSON.stringify\\(d.contact,null,2\\)\\)\")"
+      "Bash(node -e \"const d=require\\('./src/i18n/vi/sections.json'\\); console.log\\(JSON.stringify\\(d.contact,null,2\\)\\)\")",
+      "Bash(unzip -o CV_NguyenThiDieuHang.docx -d /tmp/cv_extract)",
+      "Read(//tmp/cv_extract/**)",
+      "PowerShell(npm run lint 2>&1)"
     ]
   }
 }

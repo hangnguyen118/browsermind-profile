@@ -5,25 +5,18 @@ export const certificatesChunks: KnowledgeChunk[] = [
     id: 'cert-001',
     category: 'certificate',
     content:
-      'AWS Certified Cloud Practitioner — Amazon Web Services (2023). Foundational knowledge of AWS cloud services and architecture.',
+      'Microsoft Azure Fundamentals (AZ-900) — Microsoft. Foundational knowledge of cloud concepts and Azure services.',
     contentVi:
-      'AWS Certified Cloud Practitioner — Amazon Web Services (2023). Kiến thức nền tảng về dịch vụ và kiến trúc cloud AWS.',
-    tags: ['certificate', 'aws', 'cloud', '2023'],
+      'Microsoft Azure Fundamentals (AZ-900) — Microsoft. Kiến thức nền tảng về điện toán đám mây và các dịch vụ Azure.',
+    tags: ['certificate', 'azure', 'az-900', 'microsoft', 'cloud'],
   },
   {
     id: 'cert-002',
     category: 'certificate',
     content:
-      'Meta Front-End Developer Professional Certificate — Coursera / Meta (2022).',
+      'English B1 Certification — CEFR level B1 (Intermediate). Able to communicate effectively in professional and technical environments.',
     contentVi:
-      'Chứng chỉ Meta Front-End Developer — Coursera / Meta (2022).',
-    tags: ['certificate', 'frontend', 'meta', 'coursera', '2022'],
-  },
-  {
-    id: 'cert-003',
-    category: 'certificate',
-    content: 'TOEIC 900 — ETS (2022). Professional English proficiency.',
-    contentVi: 'TOEIC 900 — ETS (2022). Trình độ tiếng Anh chuyên nghiệp.',
-    tags: ['certificate', 'toeic', 'english', '2022'],
+      'Chứng chỉ tiếng Anh B1 — trình độ B1 theo khung CEFR (Trung cấp). Có thể giao tiếp hiệu quả trong môi trường chuyên môn và kỹ thuật.',
+    tags: ['certificate', 'english', 'b1', 'cefr', 'language'],
   },
 ];
