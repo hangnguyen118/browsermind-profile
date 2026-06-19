@@ -105,8 +105,15 @@ export function Projects() {
         </div>
       ) : (
         <>
-      {/* Filter chips */}
-      <motion.div variants={fadeUp} className="mb-8 flex flex-wrap gap-2">
+      {/* Filter chips. Self-animate (not via the Section's whileInView) because
+          they mount AFTER the async GitHub load — once the parent's once:true
+          reveal has already fired, late-mounting children stay stuck at hidden. */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+        className="mb-8 flex flex-wrap gap-2"
+      >
         {categories.map((cat) => (
           <button
             key={cat}
@@ -124,8 +131,11 @@ export function Projects() {
         ))}
       </motion.div>
 
-      {/* Auto-sync hint: these projects come live from GitHub, not a static list. */}
+      {/* Auto-sync hint: these projects come live from GitHub, not a static list.
+          Self-animates for the same late-mount reason as the filter chips above. */}
       <motion.p
+        initial="hidden"
+        animate="visible"
         variants={fadeUp}
         className="-mt-4 mb-8 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-gray-500 dark:text-gray-400"
       >
