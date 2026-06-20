@@ -24,7 +24,10 @@
       "Bash(node -e \"const d=require\\('/tmp/repos.json'\\); if\\(!Array.isArray\\(d\\)\\){console.log\\('API response:',JSON.stringify\\(d\\).slice\\(0,300\\)\\);process.exit\\(\\)} d.forEach\\(r=>console.log\\(r.name.padEnd\\(26\\),'| fork='+r.fork,'| arch='+r.archived,'| topics=['+ \\(r.topics||[]\\).join\\(', '\\) +']'\\)\\)\")",
       "Bash(curl -s \"https://api.github.com/users/hangnguyen118/repos?per_page=100&sort=updated\" -o repos.tmp.json)",
       "Bash(node -e \"const d=require\\('./repos.tmp.json'\\); if\\(!Array.isArray\\(d\\)\\){console.log\\('NON-ARRAY RESPONSE:',JSON.stringify\\(d\\).slice\\(0,400\\)\\);process.exit\\(\\)} console.log\\('total repos:',d.length\\); d.forEach\\(r=>console.log\\(r.name.padEnd\\(26\\),'| fork='+r.fork,'| arch='+r.archived,'| topics=['+ \\(r.topics||[]\\).join\\(', '\\) +']'\\)\\)\")",
-      "PowerShell(npx tsc --noEmit)"
+      "PowerShell(npx tsc --noEmit)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"https://raw.githubusercontent.com/hangnguyen118/browsermind-profile/master/preview.png\")",
+      "Bash(curl -s \"https://api.github.com/repos/hangnguyen118/browsermind-profile\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('topics:', d.get\\('topics'\\)\\); print\\('fork:', d.get\\('fork'\\)\\); print\\('archived:', d.get\\('archived'\\)\\)\")"
     ]
   }
 }
