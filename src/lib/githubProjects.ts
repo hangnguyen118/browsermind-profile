@@ -33,6 +33,7 @@ interface GithubRepo {
   archived: boolean;
   stargazers_count: number;
   pushed_at: string;
+  default_branch: string;
 }
 
 /** "fruit-catcher_cc2d" -> "Fruit Catcher Cc2d". */
@@ -51,6 +52,12 @@ function toDisplay(repo: GithubRepo): DisplayProject {
     .map(prettify);
   if (tech.length === 0 && repo.language) tech.push(repo.language);
 
+  // Convention-based thumbnail: commit `preview.png` to the repo root to give a
+  // project a custom card image. Built from the default branch so it resolves
+  // even on repos that don't use `main`.
+  const branch = repo.default_branch || 'main';
+  const image = `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${branch}/preview.png`;
+
   return {
     id: `gh-${repo.id}`,
     name: prettify(repo.name),
@@ -59,6 +66,7 @@ function toDisplay(repo: GithubRepo): DisplayProject {
     github: repo.html_url,
     demo: repo.homepage ? repo.homepage : undefined,
     categoryKey,
+    image,
   };
 }
 

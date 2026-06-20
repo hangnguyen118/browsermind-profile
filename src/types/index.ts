@@ -137,6 +137,12 @@ export interface DisplayProject {
   github?: string;
   demo?: string;
   categoryKey: string;
+  /**
+   * Candidate thumbnail URL: a `preview.png` committed at the repo root. May
+   * 404 (not every repo has one) — the card falls back to GitHub's OpenGraph
+   * image, then to a gradient placeholder.
+   */
+  image?: string;
 }
 
 export interface EducationItem {

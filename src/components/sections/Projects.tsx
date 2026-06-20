@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import {
@@ -191,9 +191,7 @@ export function Projects() {
                   'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400',
               )}
             >
-              <div className="flex h-32 items-center justify-center bg-gradient-to-br from-accent-200 to-accent-400 dark:from-accent-900/50 dark:to-accent-700/40">
-                <FolderGit2 className="text-white/90" size={40} />
-              </div>
+              <ProjectThumb project={project} />
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="text-lg font-bold">{project.name}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -240,5 +238,48 @@ export function Projects() {
         </>
       )}
     </Section>
+  );
+}
+
+/**
+ * Card thumbnail with a layered fallback: the repo's committed `preview.png`,
+ * then GitHub's auto-generated OpenGraph image, then a gradient placeholder.
+ * Each failed source advances to the next via `onError`.
+ */
+function ProjectThumb({ project }: { project: DisplayProject }) {
+  const candidates = useMemo(() => {
+    const list: string[] = [];
+    if (project.image) list.push(project.image);
+    // github.com/<user>/<repo> -> opengraph.githubassets.com/1/<user>/<repo>
+    if (project.github) {
+      list.push(
+        project.github.replace('github.com', 'opengraph.githubassets.com/1'),
+      );
+    }
+    return list;
+  }, [project.image, project.github]);
+
+  const [idx, setIdx] = useState(0);
+  // Reset when the project (and thus its candidate list) changes — e.g. after a
+  // GitHub refresh swaps the cards in place.
+  useEffect(() => setIdx(0), [candidates]);
+
+  const src = candidates[idx];
+
+  return (
+    <div className="flex h-32 items-center justify-center overflow-hidden bg-gradient-to-br from-accent-200 to-accent-400 dark:from-accent-900/50 dark:to-accent-700/40">
+      {src ? (
+        <img
+          key={src}
+          src={src}
+          alt={project.name}
+          loading="lazy"
+          className="h-full w-full object-cover"
+          onError={() => setIdx((i) => i + 1)}
+        />
+      ) : (
+        <FolderGit2 className="text-white/90" size={40} />
+      )}
+    </div>
   );
 }

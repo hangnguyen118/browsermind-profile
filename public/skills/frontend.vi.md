@@ -9,7 +9,6 @@ React là công cụ tôi dùng hằng ngày. Tôi thành thạo:
 - Kiến trúc component theo hướng tái sử dụng, tách biệt rõ ràng giữa UI và logic.
 - Hooks (`useState`, `useEffect`, `useMemo`, custom hooks) và quản lý state hợp lý.
 - Tối ưu hiệu năng: memo hoá, lazy-loading, code-splitting.
-- Tích hợp AI chạy ngay trong trình duyệt (chính website này là một ví dụ).
 
 ## TypeScript — *Advanced*
 
@@ -25,7 +24,7 @@ Tôi viết toàn bộ dự án bằng TypeScript để có type an toàn:
 
 ## HTML / CSS / JavaScript — *Advanced*
 
-- HTML ngữ nghĩa, accessibility (a11y).
+- HTML ngữ nghĩa, accessibility.
 - CSS hiện đại với Tailwind, Flexbox/Grid, responsive design.
 
 ## Angular — *Intermediate*

@@ -9,7 +9,6 @@ React is my daily driver. I'm confident with:
 - Reusable, composable component architecture with a clear UI/logic separation.
 - Hooks (`useState`, `useEffect`, `useMemo`, custom hooks) and sensible state management.
 - Performance tuning: memoization, lazy-loading, code-splitting.
-- Running AI directly in the browser (this very website is an example).
 
 ## TypeScript — *Advanced*
 
@@ -25,7 +24,7 @@ I build entire projects in TypeScript for type safety:
 
 ## HTML / CSS / JavaScript — *Advanced*
 
-- Semantic HTML and accessibility (a11y).
+- Semantic HTML and accessibility.
 - Modern CSS with Tailwind, Flexbox/Grid, responsive design.
 
 ## Angular — *Intermediate*
