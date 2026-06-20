@@ -2,7 +2,7 @@
 
 **ChipNova** · 08/2025 — 03/2026
 
-ChipNova là một startup **ứng dụng web & mobile** tìm kiếm thị trường ngách và xây dựng giải pháp. Tập trung vào **phát triển web & mobile**, **Quy trình Kinh doanh Tự động hóa** và **Khai thác Trí tuệ Nhân tạo**.
+Tham gia với vai trò Frontend Developer và Testing Engineer, học hỏi cách xây dựng một sản phẩm, quy trình phát triển và kiểm thử ứng dụng web và mobile trong dự án thực tế.
 
 ## Vai trò của tôi
 
