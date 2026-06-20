@@ -2,7 +2,7 @@
 
 **ChipNova** · August 2025 — March 2026
 
-ChipNova is an innovative **web & mobile app** startup that I joined. We discovered a gap in the market and decided to build a solution. Focusing on **web & mobile development**, **Automated Business Process** and **AI-powered Implementation**.
+ChipNova is an innovative **web & mobile app** startup discovered a gap in the market and decided to build a solution. Focusing on **web & mobile development**, **Automated Business Process** and **AI-powered Implementation**.
 
 ## My role
 

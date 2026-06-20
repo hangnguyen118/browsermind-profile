@@ -2,7 +2,7 @@
 
 **ChipNova** · 08/2025 — 03/2026
 
-ChipNova là một startup **ứng dụng web & mobile** mà tôi tham gia cùng trong nhóm. Chúng tôi tìm kiếm thị trường ngách và xây dựng giải pháp. Tập trung vào **phát triển web & mobile**, **Quy trình Kinh doanh Tự động hóa** và **Khai thác Trí tuệ Nhân tạo**.
+ChipNova là một startup **ứng dụng web & mobile** tìm kiếm thị trường ngách và xây dựng giải pháp. Tập trung vào **phát triển web & mobile**, **Quy trình Kinh doanh Tự động hóa** và **Khai thác Trí tuệ Nhân tạo**.
 
 ## Vai trò của tôi
 

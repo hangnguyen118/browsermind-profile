@@ -14,9 +14,9 @@ export const experienceChunks: KnowledgeChunk[] = [
     id: 'exp-002',
     category: 'experience',
     content:
-      'From 08/2025 to 03/2026: Frontend Developer and Testing Engineer at a startup group with 3 members. Main role was building and testing the app and website using React Native and React.',
+      'From 08/2025 to 03/2026: Frontend Developer and Testing Engineer at a startup group ChipNova. Main role was building and testing the app and website using React Native and React.',
     contentVi:
-      'Từ 08/2025 đến 03/2026: Frontend Developer và Testing Engineer tại một nhóm startup với 3 thành viên. Vai trò chính là xây dựng và kiểm thử app cùng website bằng React Native và React.',
+      'Từ 08/2025 đến 03/2026: Frontend Developer và Testing Engineer tại một nhóm startup ChipNova. Vai trò chính là xây dựng và kiểm thử app cùng website bằng React Native và React.',
     tags: ['startup', 'frontend', 'testing', 'react native', 'react', 'mobile app', '2025', '2026'],
   },
 ];
