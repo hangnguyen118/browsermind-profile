@@ -17,6 +17,9 @@ import { openSidePanel } from '../../lib/sidePanelBus';
 import { useGithubProjects } from '../../hooks/useGithubProjects';
 import type { DisplayProject } from '../../types';
 
+const projectActionClassName =
+  'inline-flex min-h-11 min-w-24 cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-accent-50 px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-accent-700 hover:text-white dark:bg-accent-800 dark:text-gray-200 dark:hover:bg-accent-900 dark:hover:text-white';
+
 export function Projects() {
   const { t, i18n } = useTranslation('sections');
   const [filter, setFilter] = useState<string>('all');
@@ -209,7 +212,7 @@ export function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
+                      className={projectActionClassName}
                     >
                       <Github size={16} />
                       {t('actions.code', { ns: 'common' })}
@@ -222,7 +225,7 @@ export function Projects() {
                         e.stopPropagation();
                         openDemo(project);
                       }}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-accent-600 dark:text-gray-200 dark:hover:text-accent-300"
+                      className={projectActionClassName}
                     >
                       <ExternalLink size={16} />
                       {t('actions.demo', { ns: 'common' })}
